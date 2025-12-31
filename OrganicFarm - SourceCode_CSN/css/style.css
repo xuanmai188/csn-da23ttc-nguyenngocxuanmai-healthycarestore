@@ -1,0 +1,246 @@
+/* header*/
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap');
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'Montserrat', sans-serif;
+}
+body {
+	background: #f1fbff;
+}
+.navbar .getstarted {
+	background: #106eea;
+	margin-left: 30px;
+	border-radius: 4px;
+	font-weight: 500;
+	color: #fff;
+	text-decoration: none;
+	padding: .5rem 1rem;
+	line-height: 2.3;
+}
+.navbar-nav a {
+	font-size: 15px;
+	text-transform: uppercase;
+	font-weight: 500;
+}
+.navbar-light .navbar-brand {
+	color: #000;
+	font-size: 25px;
+	text-transform: uppercase;
+	font-weight: bold;
+	letter-spacing: 2px;
+}
+.navbar-light .navbar-brand:focus, .navbar-light .navbar-brand:hover {
+	color: #000;
+}
+.navbar-light .navbar-nav .nav-link {
+	color: #000;
+}
+.navbar-light .navbar-nav .nav-link:focus, .navbar-light .navbar-nav .nav-link:hover {
+	color: #000;
+}
+.navbar-toggler {
+	padding: 1px 5px;
+	font-size: 18px;
+	line-height: 0.3;
+	background: #fff;
+}
+.portfolio .card {
+	box-shadow: 15px 15px 40px rgba(0, 0, 0, 0.15);
+}
+.team .card {
+	box-shadow: 15px 15px 40px rgba(0, 0, 0, 0.15);
+}
+.services .card-body i {
+	font-size: 50px;
+}
+.team .card-body i {
+	font-size: 20px;
+} 
+
+/* css dropdown */
+.dropbtn {
+	background-color:rgba(var(--bs-light-rgb),var(--bs-bg-opacity))!important;;
+	color: rgb(0, 0, 0);
+	border: none;
+	font-size: 17px;
+	margin-top:8.2px;
+	margin-left: 5px;
+	margin-right: 5px;
+	font-weight: 400;
+	border-radius: 4px;
+	line-height: 1.2;
+  }
+  
+  .dropdown {
+	position: relative;
+	display: inline-block;
+  }
+  
+  .dropdown-content {
+	display: none;
+	position: absolute;
+	background-color: #f1f1f1;
+	min-width: 160px;
+	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+	z-index: 1;
+  }
+  
+  .dropdown-content a {
+	color: black;
+	padding: 12px 16px;
+	text-decoration: none;
+	display: block;
+  }
+  
+  .dropdown-content a:hover {background-color: #ddd;}
+  .dropdown:hover .dropdown-content {display: block;}
+
+  /* */
+  @media only screen and (min-width: 768px) and (max-width: 991px) {
+    .carousel-caption {
+      bottom: 370px;
+    }
+    .carousel-caption p {
+      width: 100%;
+    }
+    .card {
+      margin-bottom: 30px;
+    }
+    .img-area img {
+      width: 100%;
+    }
+  }
+  @media only screen and (max-width: 767px) {
+    .navbar-nav {
+      text-align: center;
+    }
+    .carousel-caption {
+      bottom: 125px;
+    }
+    .carousel-caption h5 {
+      font-size: 17px;
+    }
+    .carousel-caption a {
+      padding: 10px 15px;
+      font-size: 15px;
+    }
+    .carousel-caption p {
+      width: 100%;
+      line-height: 1.6;
+      font-size: 12px;
+    }
+    .about-text {
+      padding-top: 50px;
+    }
+    .card {
+      margin-bottom: 30px;
+    }
+  }
+/* footer*/
+footer {
+    background: #fff;
+    padding: 86px 0;
+  }
+  .single-content {
+    text-align: center;
+    padding: 115px 0;
+  }
+  .single-box p {
+    color: #000;
+    line-height: 1.9;
+  }
+  .single-box h3 {
+    font-size: 16px;
+    font-weight: 700;
+    color: #000;
+  }
+  .single-box .card-area i {
+    color: #000;
+    font-size: 20px;
+    margin-right: 10px;
+  }
+  .single-box ul {
+    list-style: none;
+    padding: 0;
+  }
+  .single-box ul li a {
+    text-decoration: none;
+    color: #000;
+    line-height: 2.5;
+    font-weight: 100;
+  }
+  .single-box h2 {
+    color: #000;
+    font-size: 20px;
+    font-weight: 700;
+  }
+  #basic-addon2 {
+    background: #fe1e4f;
+    color: #000;
+  }
+  .socials i {
+    font-size: 18px;
+    margin-right: 15px;
+  }
+  @media (max-width: 767px) {
+    .single-box {
+      margin-bottom: 50px;
+    }
+  }
+  @media (min-width: 768px) and (max-width: 991px) {
+    .single-box {
+      margin-bottom: 50px;
+    }
+  }
+
+/* Password validation styles */
+.form-control.is-valid {
+    border-color: #28a745;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%2328a745' d='m2.3 6.73.8-.8-.8-.8 1.4-1.4.8.8 1.8-1.8L8 4.3l-3.7 3.7z'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right calc(0.375em + 0.1875rem) center;
+    background-size: calc(0.75em + 0.375rem) calc(0.75em + 0.375rem);
+}
+
+.form-control.is-invalid {
+    border-color: #dc3545;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' width='12' height='12' fill='none' stroke='%23dc3545'%3e%3ccircle cx='6' cy='6' r='4.5'/%3e%3cpath d='m5.8 4.6 2.4 2.4m0-2.4L5.8 7'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right calc(0.375em + 0.1875rem) center;
+    background-size: calc(0.75em + 0.375rem) calc(0.75em + 0.375rem);
+}
+
+.form-control.is-valid:focus {
+    border-color: #28a745;
+    box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25);
+}
+
+.form-control.is-invalid:focus {
+    border-color: #dc3545;
+    box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);
+}
+
+/* Password strength indicator */
+.password-strength {
+    height: 4px;
+    margin-top: 5px;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+.password-strength.weak {
+    background-color: #dc3545;
+    width: 33%;
+}
+
+.password-strength.medium {
+    background-color: #ffc107;
+    width: 66%;
+}
+
+.password-strength.strong {
+    background-color: #28a745;
+    width: 100%;
+}

@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Order System</title>
+    <link href="./css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./fontawesome-free-6.3.0-web/css/all.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h2>Test Order System</h2>
+        
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h5>Test COD Order</h5>
+                    </div>
+                    <div class="card-body">
+                        <button class="btn btn-primary" onclick="createTestCODOrder()">
+                            <i class="fas fa-money-bill-wave me-2"></i>Tạo đơn hàng COD
+                        </button>
+                        <p class="mt-2 text-muted">Trạng thái: Chờ xử lý (cần admin duyệt)</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h5>Test Bank Transfer Order</h5>
+                    </div>
+                    <div class="card-body">
+                        <button class="btn btn-success" onclick="createTestBankOrder()">
+                            <i class="fas fa-university me-2"></i>Tạo đơn hàng chuyển khoản
+                        </button>
+                        <p class="mt-2 text-muted">Trạng thái: Đã xử lý (tự động)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="mt-4">
+            <h4>Current Orders</h4>
+            <div id="ordersList"></div>
+        </div>
+    </div>
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="./js/lst-products.js"></script>
+    <script>
+        // Initialize test user
+        function initTestUser() {
+            const testUser = {
+                name: 'Test User',
+                username: 'testuser',
+                password: 'test123',
+                address: '123 Test Street, Test City',
+                phone: '0123456789',
+                role: 'user'
+            };
+            
+            let users = JSON.parse(localStorage.getItem('users')) || [];
+            if (!users.find(u => u.username === 'testuser')) {
+                users.push(testUser);
+                localStorage.setItem('users', JSON.stringify(users));
+            }
+            
+            localStorage.setItem('currentUser', JSON.stringify(testUser));
+        }
+
+        function generateOrderId() {
+            const timestamp = Date.now().toString().slice(-6);
+            const random = Math.floor(Math.random() * 1000).toString().padStart(3, '0');
+            return `HC${timestamp}${random}`;
+        }
+
+        function createTestCODOrder() {
+            initTestUser();
+            
+            const testOrder = {
+                id: generateOrderId(),
+                date: new Date().toISOString(),
+                dateDisplay: new Date().toLocaleString('vi-VN'),
+                items: [
+                    {
+                        id: 1,
+                        title: 'Ngũ cốc ăn sáng',
+                        price: 397000,
+                        quantity: 1,
+                        thumbnail: './data/products/1/thumbnail.jpeg'
+                    }
+                ],
+                status: 'pending',
+                paymentMethod: 'cod',
+                customerInfo: {
+                    name: 'Test User',
+                    phone: '0123456789',
+                    address: '123 Test Street, Test City'
+                },
+                total: 397000
+            };
+            
+            let allOrders = JSON.parse(localStorage.getItem('orders')) || {};
+            if (!allOrders['testuser']) allOrders['testuser'] = [];
+            allOrders['testuser'].push(testOrder);
+            localStorage.setItem('orders', JSON.stringify(allOrders));
+            
+            alert('Đã tạo đơn hàng COD với trạng thái "Chờ xử lý"');
+            displayOrders();
+        }
+
+        function createTestBankOrder() {
+            initTestUser();
+            
+            const testOrder = {
+                id: generateOrderId(),
+                date: new Date().toISOString(),
+                dateDisplay: new Date().toLocaleString('vi-VN'),
+                items: [
+                    {
+                        id: 2,
+                        title: 'Đậu đen hữu cơ',
+                        price: 85000,
+                        quantity: 2,
+                        thumbnail: './data/products/2/thumbnail.webp'
+                    }
+                ],
+                status: 'completed',
+                paymentMethod: 'bank',
+                customerInfo: {
+                    name: 'Test User',
+                    phone: '0123456789',
+                    address: '123 Test Street, Test City'
+                },
+                total: 170000
+            };
+            
+            let allOrders = JSON.parse(localStorage.getItem('orders')) || {};
+            if (!allOrders['testuser']) allOrders['testuser'] = [];
+            allOrders['testuser'].push(testOrder);
+            localStorage.setItem('orders', JSON.stringify(allOrders));
+            
+            alert('Đã tạo đơn hàng chuyển khoản với trạng thái "Đã xử lý"');
+            displayOrders();
+        }
+
+        function displayOrders() {
+            const allOrders = JSON.parse(localStorage.getItem('orders')) || {};
+            const ordersList = document.getElementById('ordersList');
+            
+            let html = '';
+            Object.keys(allOrders).forEach(username => {
+                allOrders[username].forEach(order => {
+                    const statusClass = order.status === 'pending' ? 'warning' : 'success';
+                    const statusText = order.status === 'pending' ? 'Chờ xử lý' : 'Đã xử lý';
+                    const paymentText = order.paymentMethod === 'bank' ? 'Chuyển khoản' : 'COD';
+                    
+                    html += `
+                        <div class="card mb-2">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between">
+                                    <div>
+                                        <h6>Đơn hàng #${order.id}</h6>
+                                        <p class="mb-1">Khách hàng: ${username}</p>
+                                        <p class="mb-1">Thanh toán: ${paymentText}</p>
+                                        <p class="mb-0">Tổng: ${order.total.toLocaleString('vi-VN')}đ</p>
+                                    </div>
+                                    <div>
+                                        <span class="badge bg-${statusClass}">${statusText}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                });
+            });
+            
+            ordersList.innerHTML = html || '<p class="text-muted">Chưa có đơn hàng nào</p>';
+        }
+
+        // Load orders on page load
+        document.addEventListener('DOMContentLoaded', displayOrders);
+    </script>
+</body>
+</html>

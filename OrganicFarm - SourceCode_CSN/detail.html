@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Organic farm</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
+    <!-- All CSS -->
+    <link href="./css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./fontawesome-free-6.3.0-web/css/all.min.css">
+    <!-- CSS main-->
+    <link rel="stylesheet" href="./css/main.css">
+    <style>
+        /* AnhNBT Product Detail */
+        figure.zoom {
+            background-position: 50% 50%;
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+            cursor: zoom-in;
+        }
+
+        figure.zoom img:hover {
+            opacity: 0;
+        }
+
+        figure.zoom img {
+            transition: opacity .5s;
+            display: block;
+            width: 100%;
+        }
+
+
+        .product-tools {
+            position: relative;
+        }
+
+        .product-tools .thumbnails {
+            margin: 10px 0;
+            text-align: center;
+        }
+
+        .product-tools img {
+            border-radius: 6px;
+            max-width: 100%;
+        }
+
+        /* Ghi đè màu breadcrumb active */
+        .breadcrumb-item.active {
+            display: none !important;
+        }
+
+        .old-price {
+            text-decoration: line-through;
+            color: #999;
+            margin-right: 8px;
+        }
+
+        .new-price {
+            color: #e74c3c;
+            font-weight: bold;
+        }
+
+        /* Review System Styles */
+        .rating-input .rating-star {
+            font-size: 1.5rem;
+            color: #ddd;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+
+        .rating-input .rating-star:hover,
+        .rating-input .rating-star.active {
+            color: #ffc107;
+        }
+
+        .review-item {
+            border-bottom: 1px solid #eee;
+            padding: 1rem 0;
+        }
+
+        .review-item:last-child {
+            border-bottom: none;
+        }
+
+        .review-stars {
+            color: #ffc107;
+        }
+
+        .review-date {
+            font-size: 0.875rem;
+            color: #6c757d;
+        }
+
+        .rating-bar {
+            background-color: #e9ecef;
+            height: 8px;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .rating-fill {
+            background-color: #ffc107;
+            height: 100%;
+            transition: width 0.3s ease;
+        }
+
+        .user-avatar {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #9dc43e 0%, #4a7c59 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+    </style>
+    <script>
+        function zoom(e) {
+            var zoomer = e.currentTarget;
+            e.offsetX ? offsetX = e.offsetX : offsetX = e.touches[0].pageX
+            e.offsetY ? offsetY = e.offsetY : offsetX = e.touches[0].pageX
+            x = offsetX / zoomer.offsetWidth * 100
+            y = offsetY / zoomer.offsetHeight * 100
+            zoomer.style.backgroundPosition = x + '% ' + y + '%';
+        }
+    </script>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-white bg-gradient shadow-sm fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="/">
+                <img src="./img/web-logo.png" width="120px" alt="Web Logo Header">
+            </a>
+            
+            <!-- Nút trở về Admin - chỉ hiển thị khi admin đã đăng nhập -->
+            <div id="adminReturnButton" class="d-none">
+                <a href="admin.html" class="btn btn-outline-primary btn-sm me-3">
+                    <i class="fas fa-crown me-1"></i>Trở về Admin
+                </a>
+            </div>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link text-success" href="index.html">Trang chủ</a>
+                    </li>
+                    <li class="nav-item dropdown product-hover">
+                        <a class="nav-link text-success dropdown-toggle" href="products.html">
+                            Sản phẩm
+                        </a>
+
+                        <ul class="dropdown-menu simple-dropdown shadow">
+                            <li><a class="dropdown-item" href="products.html?category=Nutritious cereals">Ngũ cốc bổ
+                                    dưỡng</a></li>
+                            <li><a class="dropdown-item" href="products.html?category=Pulses">Các loại đậu</a></li>
+                            <li><a class="dropdown-item" href="products.html?category=Spices and Condiments">Gia vị và
+                                    nước chấm</a>
+                            </li>
+                            <li><a class="dropdown-item" href="products.html?category=Cooking oils">Thực phẩm chức năng và mỹ phẩm thiên nhiên</a>
+                            </li>
+                            <li><a class="dropdown-item" href="products.html?category=Rice">Gạo và các sản phẩm từ
+                                    gạo</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link text-success" href="contact-us.html">Liên hệ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-success" href="about-us.html">Giới Thiệu</a>
+                    </li>
+
+                    <li class="nav-item dropdown" id="userArea">
+                        <a class="nav-link text-success dropdown-toggle" href="#" data-bs-toggle="dropdown">
+                            <i class="fa-solid fa-user"></i> Đăng nhập
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end" id="userDropdown">
+                            <li><a class="dropdown-item" href="#">Tài khoản của tôi</a></li>
+                            <li><a class="dropdown-item" href="#">Lịch sử mua hàng</a></li>
+                            <li><a class="dropdown-item" href="#">Cài đặt</a></li>
+                            <li><a class="dropdown-item" href="#" id="btnLogout">Đăng xuất</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item ms-3">
+                        <button class="btn btn-success position-relative" id="btnCart" data-bs-toggle="offcanvas"
+                            data-bs-target="#offcanvasCart">
+                            Giỏ hàng <span id="cartCount" class="cart-count ms-1">0</span>
+                        </button>
+                    </li>
+
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container" id="contentarea" style="margin-top: 80px">
+        <div class="row my-2">
+            <div class="col-12">
+                <nav class="" aria-label="breadcrumb">
+                    <ol class="breadcrumb bg-white p-2 text-white">
+                        <li class="breadcrumb-item">
+                            <a class="text-white text-decoration-none" href="/">Home</a>
+                        </li>
+                        <li id="product-category" class="breadcrumb-item active" style="color: white;">
+                        </li>
+
+                    </ol>
+
+                </nav>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-9">
+                <div class="row product">
+                    <div class="col-sm-6">
+                        <figure class="zoom" id="product-thumbnail"
+                            style="background-image: url('./images/Fresh-Cucumber-w410.jpg')" onmousemove="zoom(event)"
+                            ontouchmove="zoom(event)">
+                            <img id="product-thumbnail-img" src="" class="img-fluid feature" alt="">
+                        </figure>
+                        <div class="product-tools">
+                            <div class="thumbnails row g-3" id="product-images">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <h1 class="mb-1 fs-5" id="product-title"></h1>
+                        <div class="mb-4">
+                            <!-- rating -->
+                            <small class="text-warning">
+                                <i class="fa fa-star" aria-hidden="true"></i>
+                                <i class="fa fa-star" aria-hidden="true"></i>
+                                <i class="fa fa-star" aria-hidden="true"></i>
+                                <i class="fa fa-star" aria-hidden="true"></i>
+                                <i class="fa fa-star-half" aria-hidden="true"></i>
+                            </small>
+                            <span id="product-review" class="ms-2">(0 reviews)</span>
+                        </div>
+                        <div class="fs-4">
+                            <span class="fw-bold text-dark" id="product-price"></span>
+                            <span class="text-decoration-line-through text-muted"
+                                id="product-discountPercentage"></span>
+                        </div>
+                        
+                        <!-- Stock Information -->
+                        <div class="mt-3 mb-3">
+                            <div class="d-flex align-items-center">
+                                <span class="me-2"><strong>Tình trạng:</strong></span>
+                                <span id="stock-status" class="badge bg-success">Còn hàng</span>
+                            </div>
+                            <div class="mt-2">
+                                <span class="text-muted">Số lượng có sẵn: </span>
+                                <span id="stock-quantity" class="fw-bold text-success">0</span>
+                                <span class="text-muted">sản phẩm</span>
+                            </div>
+                        </div>
+                        
+                        <hr class="my-6">
+                        <div class="row">
+                            <div class="col-md-5">
+                                <div class="input-group">
+                                    <button class="btn btn-success" type="button" id="button-minus"
+                                        onclick="decreaseValue()">-</button>
+                                    <input type="number" value="1" min="1" name="quantity" id="product-quantity"
+                                        class="form-control w-25" onchange="validateQuantityInput()" oninput="validateQuantityInput()">
+                                    <button class="btn btn-success" type="button" id="button-plus"
+                                        onclick="increaseValue()">+</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-3 row justify-content-start g-2 align-items-center">
+                            <button type="button" class="btn btn-success" onclick="addToCart()">
+                                Thêm vào giỏ hàng
+                            </button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <h2 class="h4 pb-2 my-4 text-success border-bottom border-success">Chi tiết sản phẩm</h2>
+            <div class="my-8" id="product-description">
+            </div>
+
+            <!-- Reviews Section -->
+            <div class="mt-5">
+                <h3 class="h4 pb-2 mb-4 text-success border-bottom border-success">Đánh giá sản phẩm</h3>
+                
+                <!-- Review Summary -->
+                <div class="row mb-4">
+                    <div class="col-md-4">
+                        <div class="text-center p-4 bg-light rounded">
+                            <div class="display-4 fw-bold text-warning" id="average-rating">0.0</div>
+                            <div class="mb-2" id="average-stars">
+                                <i class="far fa-star text-warning"></i>
+                                <i class="far fa-star text-warning"></i>
+                                <i class="far fa-star text-warning"></i>
+                                <i class="far fa-star text-warning"></i>
+                                <i class="far fa-star text-warning"></i>
+                            </div>
+                            <div class="text-muted">
+                                <span id="total-reviews">0</span> đánh giá
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-8">
+                        <div id="rating-breakdown">
+                            <!-- Rating breakdown will be populated by JS -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Add Review Form (for logged in users) -->
+                <div id="review-form-section" class="mb-4" style="display: none;">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5 class="mb-0">Viết đánh giá của bạn</h5>
+                        </div>
+                        <div class="card-body">
+                            <form id="review-form">
+                                <div class="mb-3">
+                                    <label class="form-label">Đánh giá của bạn:</label>
+                                    <div class="rating-input mb-2">
+                                        <i class="far fa-star rating-star" data-rating="1"></i>
+                                        <i class="far fa-star rating-star" data-rating="2"></i>
+                                        <i class="far fa-star rating-star" data-rating="3"></i>
+                                        <i class="far fa-star rating-star" data-rating="4"></i>
+                                        <i class="far fa-star rating-star" data-rating="5"></i>
+                                    </div>
+                                    <input type="hidden" id="user-rating" value="0">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="review-comment" class="form-label">Bình luận (tùy chọn):</label>
+                                    <textarea class="form-control" id="review-comment" rows="3" placeholder="Chia sẻ trải nghiệm của bạn về sản phẩm này..."></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-success">
+                                    <i class="fas fa-paper-plane me-2"></i>Gửi đánh giá
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Login prompt for non-logged users -->
+                <div id="login-prompt" class="alert alert-info" style="display: none;">
+                    <i class="fas fa-info-circle me-2"></i>
+                    <strong>Đăng nhập để đánh giá sản phẩm</strong><br>
+                    Bạn cần đăng nhập để có thể đánh giá và bình luận về sản phẩm này.
+                    <button class="btn btn-sm btn-primary ms-2" onclick="openAuthModal()">
+                        <i class="fas fa-sign-in-alt me-1"></i>Đăng nhập
+                    </button>
+                </div>
+
+                <!-- Reviews List -->
+                <div id="reviews-list">
+                    <!-- Reviews will be populated by JS -->
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="farm-img">
+      <img src="./img/footer-bg.png" class="img-fluid" width="718" height="239" alt="Footer background"
+        data-src="./img/footer-bg.png">
+    </div>
+    <footer class="bg-white py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-sm-6">
+                    <div class="single-box">
+                        <img src="./img/web-logo.png" width="250px" alt="Web Logo Footer">
+                        <ul class="nav flex-column" style="margin-left: -15px;">
+                            <li class="nav-item">
+                                <a class="nav-link text-success" href="#">
+                                    <i class="fa-solid fa-location-dot"></i>&nbsp;
+                                    Phường 1, Trà Vinh, Việt Nam
+                                </a>
+                            </li>
+
+                            <li class="nav-item"><a class="nav-link text-success" href="#"><i
+                                        class="fa-solid fa-phone"></i>&nbsp;
+                                    0382 020 858 - 0222 342 495 </a></li>
+                            <li class="nav-item"><a class="nav-link text-success" href="#"> <i
+                                        class="fa-sharp fa-regular fa-envelope"></i>&nbsp; support@aptech.vn</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6">
+                    <div class="single-box">
+                        <h2 class="fs-6 text-uppercase">HỢP TÁC & PHÁT TRIỂN</h2>
+                        <ul class="nav flex-column" style="margin-left: -15px;">
+                            <li class="nav-item"><a class="nav-link text-success" href="dai-ly.html">Trở thành đại lý Nông trại Hữu cơ</a></li>
+                            <li class="nav-item"><a class="nav-link text-success" href="bang-gia.html">Bảng giá bán lẻ</a></li>
+                            <li class="nav-item"><a class="nav-link text-success" href="thu-vien-anh.html">Thư viện ảnh</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6">
+                    <div class="single-box">
+                        <h2 class="fs-6 text-uppercase">Giá trị cốt lõi</h2>
+                        <ul class="nav flex-column" style="margin-left: -15px;">
+                            <li><a class="nav-link text-success" href="gia-tri-dao-duc.html">Kinh doanh dựa trên giá trị đạo đức</a></li>
+                            <li><a class="nav-link text-success" href="khach-hang-trung-tam.html">Đặt khách hàng làm trung tâm</a></li>
+                            <li><a class="nav-link text-success" href="chat-luong-an-toan.html">Chất lượng và an toàn</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6">
+                    <div class="single-box">
+                        <h2 class="fs-6 text-uppercase">Giới thiệu</h2>
+                        <ul class="nav flex-column" style="margin-left: -15px;">
+                            <li class="nav-item"><a class="nav-link text-success" href="about-us.html">Về chúng tôi</a>
+                            </li>
+                            <li class="nav-item"><a class="nav-link text-success" href="tu-van.html">Tư vấn</a></li>
+                            <li class="nav-item"><a class="nav-link text-success" href="dieu-khoan.html">Điều khoản sử dụng</a></li>
+                            <li class="nav-item"><a class="nav-link text-success" href="bao-mat.html">Chính sách bảo mật</a></li>
+                            <li class="nav-item"><a class="nav-link text-success" href="chinh-sach-khac.html">Các chính sách khác</a></li>
+                            <li class="nav-item">
+                                <a class="nav-link text-success" href="#" onclick="showAdminLogin()">
+                                    <i class="fas fa-cog"></i> Admin Panel
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <main class="container">
+        <!-- Offcanvas Cart -->
+        <div class="offcanvas offcanvas-end" id="offcanvasCart" style="width:420px">
+
+            <div class="offcanvas-header">
+                <h5 class="offcanvas-title">Giỏ hàng</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+            </div>
+            <div class="offcanvas-body d-flex flex-column">
+                <div id="cartItems" class="mb-3"><!-- JS render --></div>
+                <div class="mt-auto">
+                    <div class="d-flex justify-content-between mb-3">
+                        <strong>Tổng:</strong>
+                        <strong id="cartTotal">0₫</strong>
+                    </div>
+                    <button class="btn btn-success w-100 mb-2" id="btnCheckout" data-bs-dismiss="offcanvas">Tiến hành
+                        thanh toán</button>
+                    <button class="btn btn-outline-secondary w-100" id="btnClearCart">Xóa giỏ hàng</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal: Checkout -->
+        <div class="modal fade" id="modalCheckout" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Thanh toán</h5>
+                        <button class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="checkoutForm" class="form-checkout">
+                            <div class="mb-3">
+                                <label class="form-label">Họ tên</label>
+                                <input type="text" id="custName" class="form-control" placeholder="Nhập họ tên của bạn"
+                                    pattern=".{2,}" title="Họ tên phải có ít nhất 2 ký tự" autocomplete="name" required>
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label">Số điện thoại</label>
+                                <input type="tel" id="custPhone" class="form-control" placeholder="0123 456 789"
+                                    pattern="0[0-9]{9}" title="Số điện thoại phải gồm 10 chữ số, bắt đầu bằng số 0"
+                                    autocomplete="tel" required>
+                            </div>
+                            <div class="mb-3">
+                                <div class="d-flex justify-content-between align-items-center mb-2">
+                                    <label class="form-label mb-0">Địa chỉ giao hàng</label>
+                                    <button type="button" class="btn btn-sm btn-outline-primary" id="useProfileAddress">
+                                        <i class="fas fa-user me-1"></i>Dùng địa chỉ mặc định
+                                    </button>
+                                </div>
+                                <input type="text" id="custAddress" class="form-control" placeholder="Nhập địa chỉ giao hàng" required>
+                                <small class="text-muted">Hoặc click "Dùng địa chỉ mặc định" để sử dụng địa chỉ trong hồ sơ</small>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Phương thức thanh toán</label>
+                                <select id="payMethod" class="form-select">
+                                    <option value="cod">Thanh toán khi nhận hàng (COD)</option>
+                                    <option value="bank">Chuyển khoản ngân hàng</option>
+                                </select>
+                            </div>
+                            <div class="text-end">
+                                <button class="btn btn-success">Xác nhận đặt hàng</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal: Success -->
+        <div class="modal fade" id="modalSuccess" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content text-center py-4">
+                    <h5 class="mb-3">Đặt hàng thành công!</h5>
+                    <p class="text-muted">Mã đơn hàng: <strong id="orderId">#HC0001</strong></p>
+                    <button class="btn btn-primary" data-bs-dismiss="modal">Đóng</button>
+                </div>
+            </div>
+        </div>
+    </main>
+    <!-- All Js -->
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="./js/lst-products.js"></script>
+    <script src="./js/detail.js"></script>
+    <script src="./js/auth-cart.js"></script>
+
+    <script>
+    // Function to update category dropdown from localStorage
+    function updateCategoryDropdown() {
+        const categories = JSON.parse(localStorage.getItem('websiteCategories') || localStorage.getItem('categories')) || [];
+        const dropdown = document.querySelector('.dropdown-menu');
+        
+        if (dropdown && categories.length > 0) {
+            let newHTML = '';
+            categories.forEach(category => {
+                // Chỉ hiển thị tên danh mục, không hiển thị số lượng
+                newHTML += `<li><a class="dropdown-item" href="products.html?category=${category.value}">${category.name}</a></li>`;
+            });
+            dropdown.innerHTML = newHTML;
+        }
+    }
+    
+    // Listen for category updates from admin
+    window.addEventListener('categoriesUpdated', function(event) {
+        updateCategoryDropdown();
+    });
+    
+    // Update categories on page load
+    document.addEventListener('DOMContentLoaded', function() {
+        updateCategoryDropdown();
+    });
+    </script>
+
+    <div class="modal fade" id="modalAuth" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="authTitle">Đăng nhập</h5>
+                    <button class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+
+                <div class="modal-body">
+                    <form id="authForm">
+                        <div class="mb-3" id="authNameWrapper" style="display:none">
+                            <label class="form-label">Họ và tên</label>
+                            <input type="text" id="authName" class="form-control">
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Tên đăng nhập</label>
+                            <input type="text" id="authUsername" class="form-control" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Mật khẩu</label>
+                            <input type="password" id="authPassword" class="form-control" required>
+                        </div>
+
+                        <div class="mb-3" id="authAddressWrapper" style="display:none">
+                            <label class="form-label">Địa chỉ giao hàng</label>
+                            <input type="text" id="authAddress" class="form-control" placeholder="Nhập địa chỉ giao hàng mặc định">
+                        </div>
+
+                        <div class="mb-3" id="authPhoneWrapper" style="display:none">
+                            <label class="form-label">Số điện thoại</label>
+                            <input type="tel" id="authPhone" class="form-control" placeholder="0123 456 789" pattern="0[0-9]{9}">
+                        </div>
+
+                        <div class="text-end">
+                            <button class="btn btn-success">Xác nhận</button>
+                        </div>
+                    </form>
+
+                    <hr>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <a href="#" id="toggleAuth">Chưa có tài khoản? Đăng ký</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modalProfile" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Thông tin tài khoản</h5>
+            <button class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+          <div class="modal-body">
+            <form onsubmit="updateProfile(event)">
+              <div class="mb-3">
+                <label class="form-label">Họ tên</label>
+                <input type="text" id="profileName" class="form-control" required>
+              </div>
+
+              <div class="mb-3">
+                <label class="form-label">Tên đăng nhập</label>
+                <input type="text" id="profileUsername" class="form-control" required>
+              </div>
+
+              <div class="mb-3">
+                <label class="form-label">Địa chỉ giao hàng</label>
+                <input type="text" id="profileAddress" class="form-control" placeholder="Nhập địa chỉ giao hàng">
+              </div>
+
+              <div class="mb-3">
+                <label class="form-label">Số điện thoại</label>
+                <input type="tel" id="profilePhone" class="form-control" placeholder="0123 456 789" pattern="0[0-9]{9}">
+              </div>
+
+              <hr>
+              <h6 class="mb-3">
+                <i class="fas fa-key me-2"></i>Đổi mật khẩu
+                <button type="button" class="btn btn-sm btn-outline-primary ms-2" onclick="toggleChangePassword()">
+                  <i class="fas fa-edit me-1"></i>Thay đổi
+                </button>
+              </h6>
+
+              <div id="changePasswordSection" style="display: none;">
+                <div class="mb-3">
+                  <label class="form-label">Mật khẩu hiện tại</label>
+                  <input type="password" id="currentPassword" class="form-control" placeholder="Nhập mật khẩu hiện tại">
+                </div>
+                <div class="mb-3">
+                  <label class="form-label">Mật khẩu mới</label>
+                  <input type="password" id="newPassword" class="form-control" placeholder="Nhập mật khẩu mới" minlength="6">
+                </div>
+                <div class="mb-3">
+                  <label class="form-label">Xác nhận mật khẩu mới</label>
+                  <input type="password" id="confirmPassword" class="form-control" placeholder="Nhập lại mật khẩu mới">
+                </div>
+                <div class="alert alert-info">
+                  <small>
+                    <i class="fas fa-info-circle me-1"></i>
+                    Mật khẩu phải có ít nhất 6 ký tự
+                  </small>
+                </div>
+              </div>
+
+              <div class="text-end">
+                <button class="btn btn-success">
+                  <i class="fas fa-save me-2"></i>Cập nhật thông tin
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="modal fade" id="modalHistory" tabindex="-1">
+      <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Lịch sử mua hàng</h5>
+            <button class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+          <div class="modal-body" id="historyBody">
+            <!-- JS render -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+</body>
+
+</html>

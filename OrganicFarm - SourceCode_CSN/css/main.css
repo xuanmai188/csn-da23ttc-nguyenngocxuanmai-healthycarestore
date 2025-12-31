@@ -1,0 +1,341 @@
+:root {
+  --bs-blue: #0d6efd;
+  --bs-indigo: #6610f2;
+  --bs-purple: #6f42c1;
+  --bs-pink: #d63384;
+  --bs-red: #dc3545;
+  --bs-orange: #fd7e14;
+  --bs-yellow: #ffc107;
+  --bs-green: #198754;
+  --bs-teal: #20c997;
+  --bs-cyan: #0dcaf0;
+  --bs-white: #fff;
+  --bs-gray: #6c757d;
+  --bs-gray-dark: #343a40;
+  --bs-gray-100: #f8f9fa;
+  --bs-gray-200: #e9ecef;
+  --bs-gray-300: #dee2e6;
+  --bs-gray-400: #ced4da;
+  --bs-gray-500: #adb5bd;
+  --bs-gray-600: #6c757d;
+  --bs-gray-700: #495057;
+  --bs-gray-800: #343a40;
+  --bs-gray-900: #212529;
+  --bs-primary: #0d6efd;
+  --bs-secondary: #6c757d;
+  --bs-success: #458500;
+  --bs-info: #0dcaf0;
+  --bs-warning: #ffc107;
+  --bs-danger: #dc3545;
+  --bs-light: #f8f9fa;
+  --bs-dark: #212529;
+  --bs-primary-rgb: 13, 110, 253;
+  --bs-secondary-rgb: 108, 117, 125;
+  --bs-success-rgb: 69, 133, 0;
+  --bs-info-rgb: 13, 202, 240;
+  --bs-warning-rgb: 255, 193, 7;
+  --bs-danger-rgb: 220, 53, 69;
+  --bs-light-rgb: 248, 249, 250;
+  --bs-dark-rgb: 33, 37, 41;
+  --bs-white-rgb: 255, 255, 255;
+  --bs-black-rgb: 0, 0, 0;
+  --bs-body-color-rgb: 33, 37, 41;
+  --bs-body-bg-rgb: 255, 255, 255;
+  --bs-font-sans-serif: system-ui, -apple-system, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --bs-font-monospace: SFMono-Regular, Menlo, Monaco, Consolas,
+    "Liberation Mono", "Courier New", monospace;
+  --bs-gradient: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.15),
+    rgba(255, 255, 255, 0)
+  );
+  --bs-body-font-family: var(--bs-font-sans-serif);
+  --bs-body-font-size: 1rem;
+  --bs-body-font-weight: 400;
+  --bs-body-line-height: 1.5;
+  --bs-body-color: #212529;
+  --bs-body-bg: #fff;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+}
+a {
+  text-decoration: none;
+}
+.navbar-nav a {
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+/* Slider start */
+.carousel-item img {
+  width: 100%;
+  height: 100vh;
+  object-fit: cover;
+  min-height: 300px;
+  image-rendering: crisp-edges;
+}
+.text-caption {
+  text-shadow: 2px 2px 12px rgb(41 41 41 / 68%);
+}
+.text-caption h2 {
+  font-size: 6.5em;
+}
+.text-caption h4 {
+  font-size: 2.5em;
+  font-weight: 300;
+}
+@media only screen and (max-width: 768px) {
+  .text-caption h2 {
+    font-size: calc(1.325rem + 0.9vw);
+  }
+  .text-caption h4 {
+    font-size: calc(1.275rem + 0.3vw);
+  }
+}
+/* */
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .carousel-caption p {
+    width: 100%;
+  }
+  .card {
+    margin-bottom: 30px;
+  }
+  .img-area img {
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  /* For mobile phones: */
+  .carousel-item img {
+    height: 350px;
+  }
+}
+@media only screen and (max-width: 767px) {
+  .navbar-nav {
+    text-align: center;
+  }
+  .carousel-caption h5 {
+    font-size: 17px;
+  }
+  .carousel-caption a {
+    padding: 10px 15px;
+    font-size: 15px;
+  }
+  .carousel-caption p {
+    width: 100%;
+    line-height: 1.6;
+    font-size: 12px;
+  }
+  .about-text {
+    padding-top: 50px;
+  }
+  .card {
+    margin-bottom: 30px;
+  }
+}
+.welcome-left h3 {
+  font-size: 42px;
+  font-size: 2.6em;
+  font-weight: normal;
+}
+.welcome-left h2 {
+  font-size: 56px;
+  font-weight: 700;
+  color: #6ca118;
+  line-height: 37px;
+  text-transform: uppercase;
+}
+.welcome-right {
+  background: #8fc140;
+  color: #fff;
+  padding: 30px;
+  font-size: 1.2em;
+  box-shadow: 10px 10px 0 0 #e9e7dd;
+  -webkit-box-shadow: 10px 10px 0 0 #e9e7dd;
+  -moz-box-shadow: 10px 10px 0 0 #e9e7dd;
+}
+.heading {
+  margin: 30px 0;
+}
+.heading h2 {
+  color: rgb(0, 124, 61);
+  text-align: center;
+}
+.heading hr {
+  width: 10%;
+  max-width: none;
+  border-top: 4px solid rgb(218, 188, 117);
+  margin: 0 auto;
+}
+footer {
+  background: #fff;
+  padding: 86px 0;
+}
+.single-box ul {
+  list-style: none;
+  padding: 0;
+}
+.single-box ul li a {
+  text-decoration: none;
+  color: #000;
+  line-height: 2.5;
+  font-weight: 100;
+}
+.single-box h2 {
+  color: #000;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+@media (max-width: 767px) {
+  .single-box {
+    margin-bottom: 50px;
+  }
+}
+@media (min-width: 768px) and (max-width: 991px) {
+  .single-box {
+    margin-bottom: 50px;
+  }
+}
+.farm-img {
+  margin-top: -80px;
+  margin-bottom: -80px;
+}
+.farm-img img {
+  width: 100% !important;
+}
+a.inverse-green {
+  background: #fff;
+  color: #6da119 !important;
+  border: 1px solid #6da119;
+}
+
+.category {
+  border-color: #fff;
+  border-style: solid;
+  border-width: 5px;
+  cursor: pointer;
+  position: relative;
+  -webkit-box-shadow: 0px 0px 7px rgb(0 0 0 / 20%);
+  -moz-box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 0px 7px rgb(0 0 0 / 20%);
+  transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+.category-title {
+  background: rgba(109, 161, 25, 0.8);
+  bottom: 0px;
+  color: #fff;
+  font-size: 0.9em;
+  font-weight: 400;
+  line-height: 1.2em;
+  left: 0px;
+  padding: 10px;
+  position: absolute;
+  width: 100%;
+}
+
+.category-title a {
+  color: #fff;
+}
+
+.category:hover {
+  box-shadow: 2px 1px 0px #d4d5d6;
+  transform: scale(1.03);
+}
+
+/* Hover dropdown cho menu Sản phẩm */
+.product-hover:hover .dropdown-menu {
+  display: block;
+  margin-top: 0;
+}
+
+/* Admin Banner Styles */
+#adminBanner {
+    background: linear-gradient(135deg, #17a2b8 0%, #138496 100%);
+    border: none;
+    color: white;
+    margin-top: 56px; /* Để không bị che bởi navbar fixed */
+}
+
+#adminBanner .alert-dismissible .btn-close {
+    filter: invert(1);
+}
+
+#adminBanner code {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    padding: 2px 6px;
+    border-radius: 3px;
+}
+
+#adminBanner .btn-outline-primary {
+    border-color: white;
+    color: white;
+}
+
+#adminBanner .btn-outline-primary:hover {
+    background-color: white;
+    color: #17a2b8;
+}
+
+/* Adjust carousel margin when banner is shown */
+.carousel.with-banner {
+    margin-top: 0;
+}
+
+/* Crown icon for admin */
+.fa-crown {
+    font-size: 0.8em;
+    margin-left: 3px;
+}
+
+/* Admin menu item styling */
+.dropdown-menu .dropdown-item i.fa-cogs {
+    color: #28a745;
+    margin-right: 8px;
+}
+/* Modal Admin Login Button */
+#modalAuth .btn-outline-primary {
+    border-color: #007bff;
+    color: #007bff;
+    font-size: 0.875rem;
+}
+
+#modalAuth .btn-outline-primary:hover {
+    background-color: #007bff;
+    color: white;
+}
+
+#modalAuth .alert-info {
+    background-color: #e3f2fd;
+    border-color: #2196f3;
+    color: #1976d2;
+}
+
+#modalAuth .alert-info code {
+    background-color: rgba(33, 150, 243, 0.1);
+    color: #1976d2;
+    padding: 2px 4px;
+    border-radius: 3px;
+}
+
+/* Responsive modal buttons */
+@media (max-width: 576px) {
+    #modalAuth .d-flex {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    #modalAuth .btn-outline-primary {
+        width: 100%;
+    }
+}

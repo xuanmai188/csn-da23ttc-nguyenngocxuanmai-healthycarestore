@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kinh doanh dựa trên giá trị đạo đức - Star Organic</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
+    <!-- All CSS -->
+    <link href="./css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./fontawesome-free-6.3.0-web/css/all.min.css">
+    <!-- CSS main-->
+    <link rel="stylesheet" href="./css/main.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-white bg-gradient shadow-sm fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="/">
+                <img src="./img/web-logo.png" width="120px" alt="Web Logo Header">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link text-success" href="index.html">Trang chủ</a>
+                    </li>
+                    <li class="nav-item dropdown product-hover">
+                        <a class="nav-link text-success dropdown-toggle" href="products.html">
+                            Sản phẩm
+                        </a>
+                        <ul class="dropdown-menu simple-dropdown shadow">
+                            <li><a class="dropdown-item" href="products.html?category=Nutritious cereals">Ngũ cốc bổ dưỡng</a></li>
+                            <li><a class="dropdown-item" href="products.html?category=Pulses">Các loại đậu</a></li>
+                            <li><a class="dropdown-item" href="products.html?category=Spices and Condiments">Gia vị và nước chấm</a></li>
+                            <li><a class="dropdown-item" href="products.html?category=Cooking oils">Thực phẩm chức năng và mỹ phẩm thiên nhiên</a></li>
+                            <li><a class="dropdown-item" href="products.html?category=Rice">Gạo và các sản phẩm từ gạo</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-success" href="contact-us.html">Liên hệ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-success" href="about-us.html">Giới Thiệu</a>
+                    </li>
+                    <li class="nav-item dropdown" id="userArea">
+                        <a class="nav-link text-success dropdown-toggle" href="#" data-bs-toggle="dropdown">
+                            <i class="fa-solid fa-user"></i> Đăng nhập
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end" id="userDropdown">
+                            <li><a class="dropdown-item" href="#">Tài khoản của tôi</a></li>
+                            <li><a class="dropdown-item" href="#">Lịch sử mua hàng</a></li>
+                            <li><a class="dropdown-item" href="#">Cài đặt</a></li>
+                            <li><a class="dropdown-item" href="#" id="btnLogout">Đăng xuất</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item ms-3">
+                        <button class="btn btn-success position-relative" id="btnCart" data-bs-toggle="offcanvas"
+                            data-bs-target="#offcanvasCart">
+                            Giỏ hàng <span id="cartCount" class="cart-count ms-1">0</span>
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container" style="margin-top: 100px; margin-bottom: 50px;">
+        <div class="row">
+            <div class="col-lg-10 mx-auto">
+                <div class="card shadow">
+                    <div class="card-body p-5">
+                        <h1 class="card-title text-center mb-4 text-success">
+                            <i class="fas fa-balance-scale me-3"></i>Kinh doanh dựa trên giá trị đạo đức
+                        </h1>
+                        
+                        <div class="text-center mb-4">
+                            <img src="./img/web-logo.png" alt="Star Organic" class="img-fluid" style="max-width: 200px;">
+                        </div>
+
+                        <div class="alert alert-success">
+                            <h5><i class="fas fa-heart me-2"></i>Cam kết của chúng tôi</h5>
+                            <p class="mb-0">Tại Star Organic, chúng tôi tin rằng kinh doanh bền vững chỉ có thể đạt được khi xây dựng trên nền tảng đạo đức vững chắc và trách nhiệm xã hội.</p>
+                        </div>
+
+                        <h3 class="text-success mt-4 mb-3">
+                            <i class="fas fa-seedling me-2"></i>Nguyên tắc đạo đức trong sản xuất
+                        </h3>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="card border-success mb-3">
+                                    <div class="card-body">
+                                        <h5 class="card-title text-success">
+                                            <i class="fas fa-leaf me-2"></i>Sản xuất hữu cơ 100%
+                                        </h5>
+                                        <p class="card-text">Không sử dụng hóa chất độc hại, thuốc trừ sâu hay phân bón hóa học. Tất cả sản phẩm đều được chứng nhận hữu cơ quốc tế.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="card border-success mb-3">
+                                    <div class="card-body">
+                                        <h5 class="card-title text-success">
+                                            <i class="fas fa-recycle me-2"></i>Bảo vệ môi trường
+                                        </h5>
+                                        <p class="card-text">Áp dụng các phương pháp canh tác bền vững, tái chế 100% chất thải, sử dụng năng lượng tái tạo trong sản xuất.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h3 class="text-success mt-4 mb-3">
+                            <i class="fas fa-handshake me-2"></i>Đối xử công bằng với đối tác
+                        </h3>
+                        <div class="card bg-light">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-4 text-center mb-3">
+                                        <i class="fas fa-users fa-3x text-success mb-3"></i>
+                                        <h5>Nông dân địa phương</h5>
+                                        <p>Hỗ trợ kỹ thuật, đảm bảo giá thu mua công bằng, tạo việc làm ổn định cho hơn 500 hộ nông dân.</p>
+                                    </div>
+                                    <div class="col-md-4 text-center mb-3">
+                                        <i class="fas fa-truck fa-3x text-success mb-3"></i>
+                                        <h5>Nhà cung cấp</h5>
+                                        <p>Thanh toán đúng hạn, hợp tác dài hạn, chia sẻ lợi ích và rủi ro một cách minh bạch.</p>
+                                    </div>
+                                    <div class="col-md-4 text-center mb-3">
+                                        <i class="fas fa-store fa-3x text-success mb-3"></i>
+                                        <h5>Đại lý bán lẻ</h5>
+                                        <p>Chính sách hỗ trợ rõ ràng, đào tạo chuyên nghiệp, chia sẻ thông tin thị trường.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h3 class="text-success mt-4 mb-3">
+                            <i class="fas fa-shield-alt me-2"></i>Minh bạch trong hoạt động
+                        </h3>
+                        <div class="row">
+                            <div class="col-12">
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item d-flex align-items-center">
+                                        <i class="fas fa-check-circle text-success me-3"></i>
+                                        <div>
+                                            <strong>Truy xuất nguồn gốc:</strong> Mỗi sản phẩm đều có mã QR để khách hàng có thể tra cứu nguồn gốc, quy trình sản xuất
+                                        </div>
+                                    </li>
+                                    <li class="list-group-item d-flex align-items-center">
+                                        <i class="fas fa-check-circle text-success me-3"></i>
+                                        <div>
+                                            <strong>Báo cáo tài chính:</strong> Công khai báo cáo tài chính hàng năm, minh bạch trong việc sử dụng lợi nhuận
+                                        </div>
+                                    </li>
+                                    <li class="list-group-item d-flex align-items-center">
+                                        <i class="fas fa-check-circle text-success me-3"></i>
+                                        <div>
+                                            <strong>Chứng nhận quốc tế:</strong> Đạt các tiêu chuẩn ISO 9001, HACCP, Organic JAS, USDA Organic
+                                        </div>
+                                    </li>
+                                    <li class="list-group-item d-flex align-items-center">
+                                        <i class="fas fa-check-circle text-success me-3"></i>
+                                        <div>
+                                            <strong>Kiểm tra độc lập:</strong> Chấp nhận kiểm tra bất cứ lúc nào từ các tổ chức độc lập và cơ quan quản lý
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <h3 class="text-success mt-4 mb-3">
+                            <i class="fas fa-heart me-2"></i>Trách nhiệm xã hội
+                        </h3>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="card border-info mb-3">
+                                    <div class="card-header bg-info text-white">
+                                        <h5 class="mb-0">Giáo dục cộng đồng</h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <ul class="list-unstyled mb-0">
+                                            <li class="mb-2"><i class="fas fa-graduation-cap text-info me-2"></i>Tổ chức khóa học nông nghiệp hữu cơ miễn phí</li>
+                                            <li class="mb-2"><i class="fas fa-book text-info me-2"></i>Xuất bản tài liệu hướng dẫn canh tác bền vững</li>
+                                            <li class="mb-0"><i class="fas fa-users text-info me-2"></i>Hỗ trợ học bổng cho con em nông dân</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="card border-warning mb-3">
+                                    <div class="card-header bg-warning text-white">
+                                        <h5 class="mb-0">Hoạt động từ thiện</h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <ul class="list-unstyled mb-0">
+                                            <li class="mb-2"><i class="fas fa-hand-holding-heart text-warning me-2"></i>Dành 5% lợi nhuận cho hoạt động từ thiện</li>
+                                            <li class="mb-2"><i class="fas fa-home text-warning me-2"></i>Xây dựng nhà tình thương cho hộ nghèo</li>
+                                            <li class="mb-0"><i class="fas fa-medkit text-warning me-2"></i>Khám chữa bệnh miễn phí cho nông dân</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="alert alert-primary mt-4">
+                            <h5><i class="fas fa-quote-left me-2"></i>Cam kết của chúng tôi</h5>
+                            <blockquote class="blockquote mb-0">
+                                <p>"Chúng tôi cam kết xây dựng một doanh nghiệp không chỉ tạo ra lợi nhuận mà còn mang lại giá trị tích cực cho xã hội và môi trường. Mỗi quyết định kinh doanh đều được cân nhắc kỹ lưỡng về tác động đạo đức và xã hội."</p>
+                                <footer class="blockquote-footer mt-2">
+                                    <cite title="Source Title">Ban lãnh đạo Star Organic</cite>
+                                </footer>
+                            </blockquote>
+                        </div>
+
+                        <div class="text-center mt-4">
+                            <h4 class="text-success mb-3">Cùng chúng tôi xây dựng tương lai bền vững</h4>
+                            <a href="products.html" class="btn btn-success btn-lg me-3">
+                                <i class="fas fa-shopping-cart me-2"></i>Mua sắm ngay
+                            </a>
+                            <a href="contact-us.html" class="btn btn-outline-success btn-lg">
+                                <i class="fas fa-phone me-2"></i>Liên hệ tìm hiểu thêm
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="farm-img">
+        <img src="./img/footer-bg.png" class="img-fluid" width="718" height="239" alt="Footer background">
+    </div>
+    <footer class="bg-white py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-sm-6">
+                    <div class="single-box">
+                        <img src="./img/web-logo.png" width="250px" alt="Web Logo Footer">
+                        <ul class="nav flex-column" style="margin-left: -15px;">
+                            <li class="nav-item">
+                                <a class="nav-link text-success" href="#">
+                                    <i class="fa-solid fa-location-dot"></i>&nbsp;
+                                    Phường 1, Trà Vinh, Việt Nam
+                                </a>
+                            </li>
+                            <li class="nav-item"><a class="nav-link text-success" href="#"><i class="fa-solid fa-phone"></i>&nbsp;
+                                    0382 020 858 - 0222 342 495 </a></li>
+                            <li class="nav-item"><a class="nav-link text-success" href="#"> <i
+                                        class="fa-sharp fa-regular fa-envelope"></i>&nbsp; support@aptech.vn</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6">
+                    <div class="single-box">
+                        <h2 class="fs-6 text-uppercase">HỢP TÁC & PHÁT TRIỂN</h2>
+                        <ul class="nav flex-column" style="margin-left: -15px;">
+                            <li class="nav-item"><a class="nav-link text-success" href="dai-ly.html">Trở thành đại lý Nông trại Hữu cơ</a></li>
+                            <li class="nav-item"><a class="nav-link text-success" href="bang-gia.html">Bảng giá bán lẻ</a></li>
+                            <li class="nav-item"><a class="nav-link text-success" href="thu-vien-anh.html">Thư viện ảnh</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6">
+                    <div class="single-box">
+                        <h2 class="fs-6 text-uppercase">Giá trị cốt lõi</h2>
+                        <ul class="nav flex-column" style="margin-left: -15px;">
+                            <li><a class="nav-link text-success" href="gia-tri-dao-duc.html">Kinh doanh dựa trên giá trị đạo đức</a></li>
+                            <li><a class="nav-link text-success" href="khach-hang-trung-tam.html">Đặt khách hàng làm trung tâm</a></li>
+                            <li><a class="nav-link text-success" href="chat-luong-an-toan.html">Chất lượng và an toàn</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6">
+                    <div class="single-box">
+                        <h2 class="fs-6 text-uppercase">Giới thiệu</h2>
+                        <ul class="nav flex-column" style="margin-left: -15px;">
+                            <li class="nav-item"><a class="nav-link text-success" href="about-us.html">Về chúng tôi</a></li>
+                            <li class="nav-item"><a class="nav-link text-success" href="tu-van.html">Tư vấn</a></li>
+                            <li class="nav-item"><a class="nav-link text-success" href="dieu-khoan.html">Điều khoản sử dụng</a></li>
+                            <li class="nav-item"><a class="nav-link text-success" href="bao-mat.html">Chính sách bảo mật</a></li>
+                            <li class="nav-item"><a class="nav-link text-success" href="chinh-sach-khac.html">Các chính sách khác</a></li>
+                            <li class="nav-item">
+                                <a class="nav-link text-success" href="#" onclick="showAdminLogin()">
+                                    <i class="fas fa-cog"></i> Admin Panel
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="./js/lst-products.js"></script>
+    <script src="./js/auth-cart.js"></script>
+</body>
+
+</html>

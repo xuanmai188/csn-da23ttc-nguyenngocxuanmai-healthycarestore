@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tư vấn - Star Organic</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
+    <!-- All CSS -->
+    <link href="./css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./fontawesome-free-6.3.0-web/css/all.min.css">
+    <!-- CSS main-->
+    <link rel="stylesheet" href="./css/main.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-white bg-gradient shadow-sm fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="/">
+                <img src="./img/web-logo.png" width="120px" alt="Web Logo Header">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link text-success" href="index.html">Trang chủ</a>
+                    </li>
+                    <li class="nav-item dropdown product-hover">
+                        <a class="nav-link text-success dropdown-toggle" href="products.html">
+                            Sản phẩm
+                        </a>
+                        <ul class="dropdown-menu simple-dropdown shadow">
+                            <li><a class="dropdown-item" href="products.html?category=Nutritious cereals">Ngũ cốc bổ dưỡng</a></li>
+                            <li><a class="dropdown-item" href="products.html?category=Pulses">Các loại đậu</a></li>
+                            <li><a class="dropdown-item" href="products.html?category=Spices and Condiments">Gia vị và nước chấm</a></li>
+                            <li><a class="dropdown-item" href="products.html?category=Cooking oils">Thực phẩm chức năng và mỹ phẩm thiên nhiên</a></li>
+                            <li><a class="dropdown-item" href="products.html?category=Rice">Gạo và các sản phẩm từ gạo</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-success" href="contact-us.html">Liên hệ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-success" href="about-us.html">Giới Thiệu</a>
+                    </li>
+                    <li class="nav-item dropdown" id="userArea">
+                        <a class="nav-link text-success dropdown-toggle" href="#" data-bs-toggle="dropdown">
+                            <i class="fa-solid fa-user"></i> Đăng nhập
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end" id="userDropdown">
+                            <li><a class="dropdown-item" href="#">Tài khoản của tôi</a></li>
+                            <li><a class="dropdown-item" href="#">Lịch sử mua hàng</a></li>
+                            <li><a class="dropdown-item" href="#">Cài đặt</a></li>
+                            <li><a class="dropdown-item" href="#" id="btnLogout">Đăng xuất</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item ms-3">
+                        <button class="btn btn-success position-relative" id="btnCart" data-bs-toggle="offcanvas"
+                            data-bs-target="#offcanvasCart">
+                            Giỏ hàng <span id="cartCount" class="cart-count ms-1">0</span>
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container" style="margin-top: 100px; margin-bottom: 50px;">
+        <div class="row">
+            <div class="col-12">
+                <div class="text-center mb-5">
+                    <h1 class="text-success mb-3">
+                        <i class="fas fa-user-md me-3"></i>Dịch vụ tư vấn Star Organic
+                    </h1>
+                    <p class="lead text-muted">Chúng tôi luôn sẵn sàng hỗ trợ bạn tìm ra giải pháp dinh dưỡng tốt nhất</p>
+                </div>
+
+                <!-- Consultation Services -->
+                <div class="row mb-5">
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100 border-success">
+                            <div class="card-body text-center">
+                                <i class="fas fa-apple-alt fa-3x text-success mb-3"></i>
+                                <h4 class="card-title text-success">Tư vấn dinh dưỡng</h4>
+                                <p class="card-text">Chuyên gia dinh dưỡng sẽ tư vấn chế độ ăn phù hợp với tình trạng sức khỏe và nhu cầu của bạn.</p>
+                                <ul class="list-unstyled text-start">
+                                    <li><i class="fas fa-check text-success me-2"></i>Phân tích tình trạng dinh dưỡng</li>
+                                    <li><i class="fas fa-check text-success me-2"></i>Lập thực đơn cá nhân hóa</li>
+                                    <li><i class="fas fa-check text-success me-2"></i>Theo dõi tiến trình</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100 border-success">
+                            <div class="card-body text-center">
+                                <i class="fas fa-seedling fa-3x text-success mb-3"></i>
+                                <h4 class="card-title text-success">Tư vấn sản phẩm</h4>
+                                <p class="card-text">Hướng dẫn lựa chọn sản phẩm hữu cơ phù hợp với nhu cầu và ngân sách của gia đình bạn.</p>
+                                <ul class="list-unstyled text-start">
+                                    <li><i class="fas fa-check text-success me-2"></i>So sánh sản phẩm</li>
+                                    <li><i class="fas fa-check text-success me-2"></i>Hướng dẫn sử dụng</li>
+                                    <li><i class="fas fa-check text-success me-2"></i>Tư vấn bảo quản</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100 border-success">
+                            <div class="card-body text-center">
+                                <i class="fas fa-heart fa-3x text-success mb-3"></i>
+                                <h4 class="card-title text-success">Tư vấn sức khỏe</h4>
+                                <p class="card-text">Tư vấn về cách sử dụng thực phẩm hữu cơ để cải thiện sức khỏe và phòng ngừa bệnh tật.</p>
+                                <ul class="list-unstyled text-start">
+                                    <li><i class="fas fa-check text-success me-2"></i>Tư vấn cho người bệnh</li>
+                                    <li><i class="fas fa-check text-success me-2"></i>Chế độ ăn phòng bệnh</li>
+                                    <li><i class="fas fa-check text-success me-2"></i>Tăng cường miễn dịch</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Expert Team -->
+                <div class="row mb-5">
+                    <div class="col-12">
+                        <h2 class="text-success text-center mb-4">
+                            <i class="fas fa-users me-2"></i>Đội ngũ chuyên gia
+                        </h2>
+                    </div>
+                    <div class="col-md-6 col-lg-3 mb-4">
+                        <div class="card text-center">
+                            <div class="card-body">
+                                <i class="fas fa-user-md fa-3x text-success mb-3"></i>
+                                <h5 class="card-title">TS. Nguyễn Văn A</h5>
+                                <p class="text-muted">Chuyên gia dinh dưỡng</p>
+                                <p class="small">15 năm kinh nghiệm trong lĩnh vực dinh dưỡng và thực phẩm chức năng</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3 mb-4">
+                        <div class="card text-center">
+                            <div class="card-body">
+                                <i class="fas fa-leaf fa-3x text-success mb-3"></i>
+                                <h5 class="card-title">KS. Trần Thị B</h5>
+                                <p class="text-muted">Chuyên gia nông nghiệp hữu cơ</p>
+                                <p class="small">Chuyên về canh tác hữu cơ và chứng nhận sản phẩm</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3 mb-4">
+                        <div class="card text-center">
+                            <div class="card-body">
+                                <i class="fas fa-microscope fa-3x text-success mb-3"></i>
+                                <h5 class="card-title">TS. Lê Văn C</h5>
+                                <p class="text-muted">Chuyên gia an toàn thực phẩm</p>
+                                <p class="small">Kiểm nghiệm và đảm bảo chất lượng sản phẩm</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3 mb-4">
+                        <div class="card text-center">
+                            <div class="card-body">
+                                <i class="fas fa-stethoscope fa-3x text-success mb-3"></i>
+                                <h5 class="card-title">BS. Phạm Thị D</h5>
+                                <p class="text-muted">Bác sĩ dinh dưỡng</p>
+                                <p class="small">Tư vấn dinh dưỡng lâm sàng và phòng chống bệnh tật</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Consultation Process -->
+                <div class="row mb-5">
+                    <div class="col-12">
+                        <h2 class="text-success text-center mb-4">
+                            <i class="fas fa-clipboard-list me-2"></i>Quy trình tư vấn
+                        </h2>
+                        <div class="row">
+                            <div class="col-md-3 text-center mb-3">
+                                <div class="bg-success text-white rounded-circle d-inline-flex align-items-center justify-content-center" style="width: 60px; height: 60px;">
+                                    <span class="h4 mb-0">1</span>
+                                </div>
+                                <h5 class="mt-3">Đăng ký tư vấn</h5>
+                                <p class="text-muted">Liên hệ qua hotline hoặc form online</p>
+                            </div>
+                            <div class="col-md-3 text-center mb-3">
+                                <div class="bg-success text-white rounded-circle d-inline-flex align-items-center justify-content-center" style="width: 60px; height: 60px;">
+                                    <span class="h4 mb-0">2</span>
+                                </div>
+                                <h5 class="mt-3">Khảo sát nhu cầu</h5>
+                                <p class="text-muted">Chuyên gia tìm hiểu tình trạng và nhu cầu</p>
+                            </div>
+                            <div class="col-md-3 text-center mb-3">
+                                <div class="bg-success text-white rounded-circle d-inline-flex align-items-center justify-content-center" style="width: 60px; height: 60px;">
+                                    <span class="h4 mb-0">3</span>
+                                </div>
+                                <h5 class="mt-3">Đưa ra giải pháp</h5>
+                                <p class="text-muted">Tư vấn giải pháp phù hợp nhất</p>
+                            </div>
+                            <div class="col-md-3 text-center mb-3">
+                                <div class="bg-success text-white rounded-circle d-inline-flex align-items-center justify-content-center" style="width: 60px; height: 60px;">
+                                    <span class="h4 mb-0">4</span>
+                                </div>
+                                <h5 class="mt-3">Theo dõi kết quả</h5>
+                                <p class="text-muted">Hỗ trợ và theo dõi tiến trình</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="row">
+                    <div class="col-lg-8 mx-auto">
+                        <div class="card shadow">
+                            <div class="card-body">
+                                <h3 class="text-success text-center mb-4">
+                                    <i class="fas fa-calendar-alt me-2"></i>Đăng ký tư vấn miễn phí
+                                </h3>
+                                <form id="consultationForm">
+                                    <div class="row">
+                                        <div class="col-md-6 mb-3">
+                                            <label class="form-label">Họ tên <span class="text-danger">*</span></label>
+                                            <input type="text" class="form-control" id="consultName" 
+                                                   pattern="^[a-zA-ZÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵýỷỹ\s]+$"
+                                                   title="Họ tên chỉ được chứa chữ cái và khoảng trắng, không được chứa số hoặc ký tự đặc biệt"
+                                                   required>
+                                            <div class="invalid-feedback">
+                                                Họ tên chỉ được chứa chữ cái và khoảng trắng
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 mb-3">
+                                            <label class="form-label">Số điện thoại <span class="text-danger">*</span></label>
+                                            <input type="tel" class="form-control" id="consultPhone" 
+                                                   pattern="^(0|\+84)[0-9]{9}$"
+                                                   title="Số điện thoại phải có 10 chữ số, bắt đầu bằng số 0 hoặc +84 (ví dụ: 0123456789)"
+                                                   placeholder="0123456789"
+                                                   required>
+                                            <div class="invalid-feedback">
+                                                Số điện thoại phải có 10 chữ số, bắt đầu bằng số 0 (ví dụ: 0123456789)
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">Email</label>
+                                        <input type="email" class="form-control" id="consultEmail"
+                                               pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+                                               title="Vui lòng nhập địa chỉ email hợp lệ (ví dụ: example@domain.com)">
+                                        <div class="invalid-feedback">
+                                            Email không đúng định dạng (ví dụ: example@domain.com)
+                                        </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">Loại tư vấn <span class="text-danger">*</span></label>
+                                        <select class="form-select" id="consultType" required>
+                                            <option value="">Chọn loại tư vấn</option>
+                                            <option value="nutrition">Tư vấn dinh dưỡng</option>
+                                            <option value="product">Tư vấn sản phẩm</option>
+                                            <option value="health">Tư vấn sức khỏe</option>
+                                            <option value="other">Khác</option>
+                                        </select>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">Mô tả chi tiết nhu cầu <span class="text-danger">*</span></label>
+                                        <textarea class="form-control" id="consultDescription" rows="4" required></textarea>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">Thời gian mong muốn được tư vấn</label>
+                                        <select class="form-select" id="consultTime">
+                                            <option value="">Chọn thời gian</option>
+                                            <option value="morning">Buổi sáng (8:00 - 12:00)</option>
+                                            <option value="afternoon">Buổi chiều (13:00 - 17:00)</option>
+                                            <option value="evening">Buổi tối (18:00 - 20:00)</option>
+                                        </select>
+                                    </div>
+                                    <div class="text-center">
+                                        <button type="submit" class="btn btn-success btn-lg">
+                                            <i class="fas fa-paper-plane me-2"></i>Đăng ký tư vấn
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Info -->
+                <div class="row mt-5">
+                    <div class="col-12">
+                        <div class="alert alert-success">
+                            <h5><i class="fas fa-phone me-2"></i>Liên hệ trực tiếp</h5>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <p class="mb-1"><strong>Hotline tư vấn:</strong></p>
+                                    <p class="mb-0">📞 0382 020 858</p>
+                                </div>
+                                <div class="col-md-4">
+                                    <p class="mb-1"><strong>Email tư vấn:</strong></p>
+                                    <p class="mb-0">✉️ tuvan@starorganic.vn</p>
+                                </div>
+                                <div class="col-md-4">
+                                    <p class="mb-1"><strong>Thời gian làm việc:</strong></p>
+                                    <p class="mb-0">🕐 8:00 - 20:00 (Thứ 2 - CN)</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="farm-img">
+        <img src="./img/footer-bg.png" class="img-fluid" width="718" height="239" alt="Footer background">
+    </div>
+    <footer class="bg-white py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-sm-6">
+                    <div class="single-box">
+                        <img src="./img/web-logo.png" width="250px" alt="Web Logo Footer">
+                        <ul class="nav flex-column" style="margin-left: -15px;">
+                            <li class="nav-item">
+                                <a class="nav-link text-success" href="#">
+                                    <i class="fa-solid fa-location-dot"></i>&nbsp;
+                                    Phường 1, Trà Vinh, Việt Nam
+                                </a>
+                            </li>
+                            <li class="nav-item"><a class="nav-link text-success" href="#"><i class="fa-solid fa-phone"></i>&nbsp;
+                                    0382 020 858 - 0222 342 495 </a></li>
+                            <li class="nav-item"><a class="nav-link text-success" href="#"> <i
+                                        class="fa-sharp fa-regular fa-envelope"></i>&nbsp; support@aptech.vn</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6">
+                    <div class="single-box">
+                        <h2 class="fs-6 text-uppercase">HỢP TÁC & PHÁT TRIỂN</h2>
+                        <ul class="nav flex-column" style="margin-left: -15px;">
+                            <li class="nav-item"><a class="nav-link text-success" href="dai-ly.html">Trở thành đại lý Nông trại Hữu cơ</a></li>
+                            <li class="nav-item"><a class="nav-link text-success" href="bang-gia.html">Bảng giá bán lẻ</a></li>
+                            <li class="nav-item"><a class="nav-link text-success" href="thu-vien-anh.html">Thư viện ảnh</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6">
+                    <div class="single-box">
+                        <h2 class="fs-6 text-uppercase">Giá trị cốt lõi</h2>
+                        <ul class="nav flex-column" style="margin-left: -15px;">
+                            <li><a class="nav-link text-success" href="gia-tri-dao-duc.html">Kinh doanh dựa trên giá trị đạo đức</a></li>
+                            <li><a class="nav-link text-success" href="khach-hang-trung-tam.html">Đặt khách hàng làm trung tâm</a></li>
+                            <li><a class="nav-link text-success" href="chat-luong-an-toan.html">Chất lượng và an toàn</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6">
+                    <div class="single-box">
+                        <h2 class="fs-6 text-uppercase">Giới thiệu</h2>
+                        <ul class="nav flex-column" style="margin-left: -15px;">
+                            <li class="nav-item"><a class="nav-link text-success" href="about-us.html">Về chúng tôi</a></li>
+                            <li class="nav-item"><a class="nav-link text-success" href="tu-van.html">Tư vấn</a></li>
+                            <li class="nav-item"><a class="nav-link text-success" href="dieu-khoan.html">Điều khoản sử dụng</a></li>
+                            <li class="nav-item"><a class="nav-link text-success" href="bao-mat.html">Chính sách bảo mật</a></li>
+                            <li class="nav-item"><a class="nav-link text-success" href="chinh-sach-khac.html">Các chính sách khác</a></li>
+                            <li class="nav-item">
+                                <a class="nav-link text-success" href="#" onclick="showAdminLogin()">
+                                    <i class="fas fa-cog"></i> Admin Panel
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="./js/lst-products.js"></script>
+    <script src="./js/auth-cart.js"></script>
+
+    <script>
+        document.getElementById('consultationForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('consultName').value.trim();
+            const phone = document.getElementById('consultPhone').value.trim();
+            const email = document.getElementById('consultEmail').value.trim();
+            const type = document.getElementById('consultType').value;
+            const description = document.getElementById('consultDescription').value.trim();
+            const time = document.getElementById('consultTime').value;
+            
+            // Kiểm tra không được bỏ trống các trường bắt buộc
+            if (name === "" || phone === "" || type === "" || description === "") {
+                alert("Vui lòng nhập đầy đủ thông tin bắt buộc!");
+                return;
+            }
+
+            // Kiểm tra họ tên chỉ chứa chữ cái và khoảng trắng (không có số)
+            const nameRegex = /^[a-zA-ZÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵýỷỹ\s]+$/;
+            if (!nameRegex.test(name)) {
+                alert("Họ tên chỉ được chứa chữ cái và khoảng trắng, không được chứa số hoặc ký tự đặc biệt!");
+                document.getElementById('consultName').focus();
+                return;
+            }
+
+            // Kiểm tra họ tên phải có ít nhất 2 ký tự
+            if (name.length < 2) {
+                alert("Họ tên phải có ít nhất 2 ký tự!");
+                document.getElementById('consultName').focus();
+                return;
+            }
+
+            // Kiểm tra số điện thoại Việt Nam
+            const phoneRegex = /^(0|\+84)[0-9]{9}$/;
+            if (!phoneRegex.test(phone)) {
+                alert("Số điện thoại không hợp lệ! Vui lòng nhập số điện thoại 10 chữ số bắt đầu bằng số 0 (ví dụ: 0123456789)");
+                document.getElementById('consultPhone').focus();
+                return;
+            }
+
+            // Kiểm tra email nếu có nhập
+            if (email && email !== "") {
+                const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+                if (!emailRegex.test(email)) {
+                    alert("Email không đúng định dạng! Vui lòng nhập email hợp lệ (ví dụ: example@domain.com)");
+                    document.getElementById('consultEmail').focus();
+                    return;
+                }
+            }
+
+            // Kiểm tra nội dung mô tả
+            if (description.length < 10) {
+                alert("Mô tả chi tiết nhu cầu phải có ít nhất 10 ký tự!");
+                document.getElementById('consultDescription').focus();
+                return;
+            }
+            
+            // Save to localStorage
+            const consultation = {
+                name: name,
+                phone: phone,
+                email: email,
+                type: type,
+                description: description,
+                time: time,
+                date: new Date().toISOString()
+            };
+            
+            let consultations = JSON.parse(localStorage.getItem('consultations') || '[]');
+            consultations.push(consultation);
+            localStorage.setItem('consultations', JSON.stringify(consultations));
+            
+            alert('Đăng ký tư vấn thành công! Chúng tôi sẽ liên hệ với bạn trong thời gian sớm nhất.');
+            this.reset();
+        });
+
+        // Thêm validation real-time cho trường họ tên
+        document.getElementById('consultName').addEventListener('input', function(e) {
+            const nameInput = e.target;
+            const nameValue = nameInput.value;
+            const nameRegex = /^[a-zA-ZÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵýỷỹ\s]*$/;
+            
+            if (nameValue && !nameRegex.test(nameValue)) {
+                nameInput.classList.add("is-invalid");
+                nameInput.classList.remove("is-valid");
+            } else if (nameValue.length >= 2) {
+                nameInput.classList.add("is-valid");
+                nameInput.classList.remove("is-invalid");
+            } else {
+                nameInput.classList.remove("is-valid", "is-invalid");
+            }
+        });
+
+        // Thêm validation real-time cho email
+        document.getElementById('consultEmail').addEventListener('input', function(e) {
+            const emailInput = e.target;
+            const emailValue = emailInput.value;
+            const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+            
+            if (emailValue && emailRegex.test(emailValue)) {
+                emailInput.classList.add("is-valid");
+                emailInput.classList.remove("is-invalid");
+            } else if (emailValue) {
+                emailInput.classList.add("is-invalid");
+                emailInput.classList.remove("is-valid");
+            } else {
+                emailInput.classList.remove("is-valid", "is-invalid");
+            }
+        });
+
+        // Thêm validation real-time cho số điện thoại
+        document.getElementById('consultPhone').addEventListener('input', function(e) {
+            const phoneInput = e.target;
+            const phoneValue = phoneInput.value;
+            const phoneRegex = /^(0|\+84)[0-9]{9}$/;
+            
+            // Chỉ cho phép nhập số và dấu +
+            const numericValue = phoneValue.replace(/[^0-9+]/g, '');
+            if (numericValue !== phoneValue) {
+                phoneInput.value = numericValue;
+                return;
+            }
+            
+            if (phoneValue && phoneRegex.test(phoneValue)) {
+                phoneInput.classList.add("is-valid");
+                phoneInput.classList.remove("is-invalid");
+            } else if (phoneValue) {
+                phoneInput.classList.add("is-invalid");
+                phoneInput.classList.remove("is-valid");
+            } else {
+                phoneInput.classList.remove("is-valid", "is-invalid");
+            }
+        });
+
+        // Thêm validation cho mô tả
+        document.getElementById('consultDescription').addEventListener('input', function(e) {
+            const descInput = e.target;
+            const descValue = descInput.value;
+            
+            if (descValue.length >= 10) {
+                descInput.classList.add("is-valid");
+                descInput.classList.remove("is-invalid");
+            } else if (descValue.length > 0) {
+                descInput.classList.add("is-invalid");
+                descInput.classList.remove("is-valid");
+            } else {
+                descInput.classList.remove("is-valid", "is-invalid");
+            }
+        });
+
+        // Ngăn paste nội dung không hợp lệ vào trường số điện thoại
+        document.getElementById('consultPhone').addEventListener('paste', function(e) {
+            e.preventDefault();
+            const paste = (e.clipboardData || window.clipboardData).getData('text');
+            const numericPaste = paste.replace(/[^0-9+]/g, '');
+            e.target.value = numericPaste;
+            e.target.dispatchEvent(new Event('input'));
+        });
+
+        // Ngăn nhập ký tự không hợp lệ vào số điện thoại
+        document.getElementById('consultPhone').addEventListener('keypress', function(e) {
+            const char = String.fromCharCode(e.which);
+            if (!/[0-9+]/.test(char)) {
+                e.preventDefault();
+            }
+        });
+    </script>
+</body>
+
+</html>

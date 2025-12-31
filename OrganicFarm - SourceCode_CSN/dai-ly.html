@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trở thành đại lý - Star Organic</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
+    <!-- All CSS -->
+    <link href="./css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./fontawesome-free-6.3.0-web/css/all.min.css">
+    <!-- CSS main-->
+    <link rel="stylesheet" href="./css/main.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-white bg-gradient shadow-sm fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="/">
+                <img src="./img/web-logo.png" width="120px" alt="Web Logo Header">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link text-success" href="index.html">Trang chủ</a>
+                    </li>
+                    <li class="nav-item dropdown product-hover">
+                        <a class="nav-link text-success dropdown-toggle" href="products.html">
+                            Sản phẩm
+                        </a>
+                        <ul class="dropdown-menu simple-dropdown shadow">
+                            <li><a class="dropdown-item" href="products.html?category=Nutritious cereals">Ngũ cốc bổ dưỡng</a></li>
+                            <li><a class="dropdown-item" href="products.html?category=Pulses">Các loại đậu</a></li>
+                            <li><a class="dropdown-item" href="products.html?category=Spices and Condiments">Gia vị và nước chấm</a></li>
+                            <li><a class="dropdown-item" href="products.html?category=Cooking oils">Thực phẩm chức năng và mỹ phẩm thiên nhiên</a></li>
+                            <li><a class="dropdown-item" href="products.html?category=Rice">Gạo và các sản phẩm từ gạo</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-success" href="contact-us.html">Liên hệ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-success" href="about-us.html">Giới Thiệu</a>
+                    </li>
+                    <li class="nav-item dropdown" id="userArea">
+                        <a class="nav-link text-success dropdown-toggle" href="#" data-bs-toggle="dropdown">
+                            <i class="fa-solid fa-user"></i> Đăng nhập
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end" id="userDropdown">
+                            <li><a class="dropdown-item" href="#">Tài khoản của tôi</a></li>
+                            <li><a class="dropdown-item" href="#">Lịch sử mua hàng</a></li>
+                            <li><a class="dropdown-item" href="#">Cài đặt</a></li>
+                            <li><a class="dropdown-item" href="#" id="btnLogout">Đăng xuất</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item ms-3">
+                        <button class="btn btn-success position-relative" id="btnCart" data-bs-toggle="offcanvas"
+                            data-bs-target="#offcanvasCart">
+                            Giỏ hàng <span id="cartCount" class="cart-count ms-1">0</span>
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container" style="margin-top: 100px; margin-bottom: 50px;">
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <div class="card shadow">
+                    <div class="card-body p-5">
+                        <h1 class="card-title text-center mb-4 text-success">
+                            <i class="fas fa-handshake me-3"></i>Trở thành đại lý Star Organic
+                        </h1>
+                        
+                        <div class="text-center mb-4">
+                            <img src="./img/web-logo.png" alt="Star Organic" class="img-fluid" style="max-width: 200px;">
+                        </div>
+
+                        <div class="alert alert-success">
+                            <h5><i class="fas fa-star me-2"></i>Cơ hội kinh doanh tuyệt vời đang chờ bạn!</h5>
+                            <p class="mb-0">Gia nhập mạng lưới đại lý Star Organic và cùng chúng tôi phát triển thị trường sản phẩm hữu cơ tại Việt Nam.</p>
+                        </div>
+
+                        <h3 class="text-success mt-4 mb-3">
+                            <i class="fas fa-gift me-2"></i>Quyền lợi đại lý
+                        </h3>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <ul class="list-unstyled">
+                                    <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Chiết khấu hấp dẫn từ 15-30%</li>
+                                    <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Hỗ trợ marketing và quảng cáo</li>
+                                    <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Đào tạo kiến thức sản phẩm</li>
+                                    <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Vùng độc quyền kinh doanh</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <ul class="list-unstyled">
+                                    <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Hỗ trợ vận chuyển toàn quốc</li>
+                                    <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Chính sách đổi trả linh hoạt</li>
+                                    <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Tư vấn kinh doanh 24/7</li>
+                                    <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Thưởng doanh số hàng tháng</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <h3 class="text-success mt-4 mb-3">
+                            <i class="fas fa-clipboard-list me-2"></i>Điều kiện trở thành đại lý
+                        </h3>
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="card bg-light">
+                                    <div class="card-body">
+                                        <ul class="mb-0">
+                                            <li class="mb-2">Có kinh nghiệm kinh doanh trong lĩnh vực thực phẩm hoặc sức khỏe</li>
+                                            <li class="mb-2">Có cửa hàng, kho bãi hoặc hệ thống phân phối</li>
+                                            <li class="mb-2">Cam kết doanh số tối thiểu 50 triệu/tháng</li>
+                                            <li class="mb-2">Có đội ngũ bán hàng chuyên nghiệp</li>
+                                            <li class="mb-0">Tuân thủ chính sách giá và chất lượng của công ty</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h3 class="text-success mt-4 mb-3">
+                            <i class="fas fa-chart-line me-2"></i>Các gói đại lý
+                        </h3>
+                        <div class="row">
+                            <div class="col-md-4 mb-3">
+                                <div class="card border-success">
+                                    <div class="card-header bg-success text-white text-center">
+                                        <h5 class="mb-0">Đại lý Đồng</h5>
+                                    </div>
+                                    <div class="card-body text-center">
+                                        <h4 class="text-success">50 triệu</h4>
+                                        <p class="text-muted">Doanh số/tháng</p>
+                                        <ul class="list-unstyled">
+                                            <li>Chiết khấu 15%</li>
+                                            <li>Hỗ trợ marketing cơ bản</li>
+                                            <li>Đào tạo online</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <div class="card border-warning">
+                                    <div class="card-header bg-warning text-white text-center">
+                                        <h5 class="mb-0">Đại lý Bạc</h5>
+                                    </div>
+                                    <div class="card-body text-center">
+                                        <h4 class="text-warning">100 triệu</h4>
+                                        <p class="text-muted">Doanh số/tháng</p>
+                                        <ul class="list-unstyled">
+                                            <li>Chiết khấu 20%</li>
+                                            <li>Hỗ trợ marketing nâng cao</li>
+                                            <li>Đào tạo offline</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <div class="card border-primary">
+                                    <div class="card-header bg-primary text-white text-center">
+                                        <h5 class="mb-0">Đại lý Vàng</h5>
+                                    </div>
+                                    <div class="card-body text-center">
+                                        <h4 class="text-primary">200 triệu</h4>
+                                        <p class="text-muted">Doanh số/tháng</p>
+                                        <ul class="list-unstyled">
+                                            <li>Chiết khấu 30%</li>
+                                            <li>Hỗ trợ marketing toàn diện</li>
+                                            <li>Đào tạo 1-1 chuyên sâu</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="text-center mt-4">
+                            <h4 class="text-success mb-3">Sẵn sàng bắt đầu hành trình kinh doanh?</h4>
+                            <a href="contact-us.html" class="btn btn-success btn-lg me-3">
+                                <i class="fas fa-phone me-2"></i>Liên hệ ngay
+                            </a>
+                            <a href="mailto:partnership@starorganic.vn" class="btn btn-outline-success btn-lg">
+                                <i class="fas fa-envelope me-2"></i>Gửi email
+                            </a>
+                        </div>
+
+                        <div class="alert alert-info mt-4">
+                            <h6><i class="fas fa-info-circle me-2"></i>Thông tin liên hệ:</h6>
+                            <p class="mb-1"><strong>Hotline:</strong> 0382 020 858</p>
+                            <p class="mb-1"><strong>Email:</strong> partnership@starorganic.vn</p>
+                            <p class="mb-0"><strong>Địa chỉ:</strong> Tầng 1, Tòa C7, Đại học Trà Vinh, Phường 5, Trà Vinh</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="farm-img">
+        <img src="./img/footer-bg.png" class="img-fluid" width="718" height="239" alt="Footer background">
+    </div>
+    <footer class="bg-white py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-sm-6">
+                    <div class="single-box">
+                        <img src="./img/web-logo.png" width="250px" alt="Web Logo Footer">
+                        <ul class="nav flex-column" style="margin-left: -15px;">
+                            <li class="nav-item">
+                                <a class="nav-link text-success" href="#">
+                                    <i class="fa-solid fa-location-dot"></i>&nbsp;
+                                    Phường 1, Trà Vinh, Việt Nam
+                                </a>
+                            </li>
+                            <li class="nav-item"><a class="nav-link text-success" href="#"><i class="fa-solid fa-phone"></i>&nbsp;
+                                    0382 020 858 - 0222 342 495 </a></li>
+                            <li class="nav-item"><a class="nav-link text-success" href="#"> <i
+                                        class="fa-sharp fa-regular fa-envelope"></i>&nbsp; support@aptech.vn</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6">
+                    <div class="single-box">
+                        <h2 class="fs-6 text-uppercase">HỢP TÁC & PHÁT TRIỂN</h2>
+                        <ul class="nav flex-column" style="margin-left: -15px;">
+                            <li class="nav-item"><a class="nav-link text-success" href="dai-ly.html">Trở thành đại lý Nông trại Hữu cơ</a></li>
+                            <li class="nav-item"><a class="nav-link text-success" href="bang-gia.html">Bảng giá bán lẻ</a></li>
+                            <li class="nav-item"><a class="nav-link text-success" href="thu-vien-anh.html">Thư viện ảnh</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6">
+                    <div class="single-box">
+                        <h2 class="fs-6 text-uppercase">Giá trị cốt lõi</h2>
+                        <ul class="nav flex-column" style="margin-left: -15px;">
+                            <li><a class="nav-link text-success" href="gia-tri-dao-duc.html">Kinh doanh dựa trên giá trị đạo đức</a></li>
+                            <li><a class="nav-link text-success" href="khach-hang-trung-tam.html">Đặt khách hàng làm trung tâm</a></li>
+                            <li><a class="nav-link text-success" href="chat-luong-an-toan.html">Chất lượng và an toàn</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6">
+                    <div class="single-box">
+                        <h2 class="fs-6 text-uppercase">Giới thiệu</h2>
+                        <ul class="nav flex-column" style="margin-left: -15px;">
+                            <li class="nav-item"><a class="nav-link text-success" href="about-us.html">Về chúng tôi</a></li>
+                            <li class="nav-item"><a class="nav-link text-success" href="tu-van.html">Tư vấn</a></li>
+                            <li class="nav-item"><a class="nav-link text-success" href="dieu-khoan.html">Điều khoản sử dụng</a></li>
+                            <li class="nav-item"><a class="nav-link text-success" href="bao-mat.html">Chính sách bảo mật</a></li>
+                            <li class="nav-item"><a class="nav-link text-success" href="chinh-sach-khac.html">Các chính sách khác</a></li>
+                            <li class="nav-item">
+                                <a class="nav-link text-success" href="#" onclick="showAdminLogin()">
+                                    <i class="fas fa-cog"></i> Admin Panel
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="./js/lst-products.js"></script>
+    <script src="./js/auth-cart.js"></script>
+</body>
+
+</html>

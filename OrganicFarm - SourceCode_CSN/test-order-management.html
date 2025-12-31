@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Order Management</title>
+    <link href="./css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./fontawesome-free-6.3.0-web/css/all.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h2><i class="fas fa-clipboard-list me-2"></i>Test Order Management System</h2>
+        
+        <div class="alert alert-info">
+            <h5><i class="fas fa-info-circle me-2"></i>Hướng dẫn test:</h5>
+            <ol>
+                <li><strong>Tạo đơn hàng COD</strong> - Trạng thái "Chờ xử lý" → Có thể chỉnh sửa/hủy</li>
+                <li><strong>Tạo đơn hàng chuyển khoản</strong> - Trạng thái "Đã xử lý" → Chỉ có thể xóa</li>
+                <li><strong>Xem lịch sử</strong> - Kiểm tra các nút chức năng</li>
+                <li><strong>Test chỉnh sửa</strong> - Thay đổi thông tin giao hàng, số lượng sản phẩm</li>
+                <li><strong>Test hủy/xóa</strong> - Hủy đơn pending, xóa đơn completed</li>
+            </ol>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-header bg-warning text-dark">
+                        <h5><i class="fas fa-money-bill-wave me-2"></i>COD Order</h5>
+                    </div>
+                    <div class="card-body">
+                        <button class="btn btn-warning w-100" onclick="createTestCODOrder()">
+                            Tạo đơn hàng COD
+                        </button>
+                        <small class="text-muted d-block mt-2">
+                            Trạng thái: Chờ xử lý<br>
+                            Có thể: Chỉnh sửa, Hủy
+                        </small>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-header bg-success text-white">
+                        <h5><i class="fas fa-university me-2"></i>Bank Transfer</h5>
+                    </div>
+                    <div class="card-body">
+                        <button class="btn btn-success w-100" onclick="createTestBankOrder()">
+                            Tạo đơn chuyển khoản
+                        </button>
+                        <small class="text-muted d-block mt-2">
+                            Trạng thái: Đã xử lý<br>
+                            Có thể: Xóa khỏi lịch sử
+                        </small>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-header bg-info text-white">
+                        <h5><i class="fas fa-history me-2"></i>Order History</h5>
+                    </div>
+                    <div class="card-body">
+                        <button class="btn btn-info w-100" onclick="openHistoryModal()">
+                            Xem lịch sử đơn hàng
+                        </button>
+                        <small class="text-muted d-block mt-2">
+                            Test các chức năng:<br>
+                            Chỉnh sửa, Hủy, Xóa
+                        </small>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="mt-4">
+            <h4><i class="fas fa-list me-2"></i>Current Orders Status</h4>
+            <div id="ordersList"></div>
+        </div>
+        
+        <div class="mt-4">
+            <div class="card">
+                <div class="card-header">
+                    <h5><i class="fas fa-tools me-2"></i>Test Actions</h5>
+                </div>
+                <div class="card-body">
+                    <button class="btn btn-outline-danger me-2" onclick="clearAllOrders()">
+                        <i class="fas fa-trash me-1"></i>Xóa tất cả đơn hàng
+                    </button>
+                    <button class="btn btn-outline-info" onclick="displayOrders()">
+                        <i class="fas fa-refresh me-1"></i>Refresh danh sách
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal History (copy from main files) -->
+    <div class="modal fade" id="modalHistory" tabindex="-1">
+        <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title"><i class="fas fa-history me-2"></i>Lịch sử mua hàng</h5>
+                    <button class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body" id="historyBody">
+                    <!-- JS render -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="./js/lst-products.js"></script>
+    <script src="./js/auth-cart.js"></script>
+    
+    <script>
+        // Initialize test user
+        function initTestUser() {
+            const testUser = {
+                name: 'Nguyễn Văn Test',
+                username: 'testuser',
+                password: 'test123',
+                address: '123 Đường Test, Quận Test, TP.HCM',
+                phone: '0987654321',
+                role: 'user'
+            };
+            
+            let users = JSON.parse(localStorage.getItem('users')) || [];
+            if (!users.find(u => u.username === 'testuser')) {
+                users.push(testUser);
+                localStorage.setItem('users', JSON.stringify(users));
+            }
+            
+            localStorage.setItem('currentUser', JSON.stringify(testUser));
+        }
+
+        function generateOrderId() {
+            const timestamp = Date.now().toString().slice(-6);
+            const random = Math.floor(Math.random() * 1000).toString().padStart(3, '0');
+            return `HC${timestamp}${random}`;
+        }
+
+        function createTestCODOrder() {
+            initTestUser();
+            
+            const testOrder = {
+                id: generateOrderId(),
+                date: new Date().toISOString(),
+                dateDisplay: new Date().toLocaleString('vi-VN'),
+                items: [
+                    {
+                        id: 1,
+                        title: 'Ngũ cốc ăn sáng',
+                        price: 397000,
+                        quantity: 2,
+                        thumbnail: './data/products/1/thumbnail.jpeg'
+                    },
+                    {
+                        id: 3,
+                        title: 'Bột nghệ 115g',
+                        price: 20000,
+                        quantity: 1,
+                        thumbnail: './data/products/3/thumbnail.jpg'
+                    }
+                ],
+                status: 'pending',
+                paymentMethod: 'cod',
+                customerInfo: {
+                    name: 'Nguyễn Văn Test',
+                    phone: '0987654321',
+                    address: '123 Đường Test, Quận Test, TP.HCM'
+                },
+                total: 814000
+            };
+            
+            let allOrders = JSON.parse(localStorage.getItem('orders')) || {};
+            if (!allOrders['testuser']) allOrders['testuser'] = [];
+            allOrders['testuser'].push(testOrder);
+            localStorage.setItem('orders', JSON.stringify(allOrders));
+            
+            alert('✅ Đã tạo đơn hàng COD với trạng thái "Chờ xử lý"\n\n📝 Có thể chỉnh sửa và hủy đơn hàng này');
+            displayOrders();
+        }
+
+        function createTestBankOrder() {
+            initTestUser();
+            
+            const testOrder = {
+                id: generateOrderId(),
+                date: new Date().toISOString(),
+                dateDisplay: new Date().toLocaleString('vi-VN'),
+                items: [
+                    {
+                        id: 5,
+                        title: 'Dầu dừa nguyên chất',
+                        price: 157000,
+                        quantity: 1,
+                        thumbnail: './data/products/5/thumbnail.webp'
+                    }
+                ],
+                status: 'completed',
+                paymentMethod: 'bank',
+                customerInfo: {
+                    name: 'Nguyễn Văn Test',
+                    phone: '0987654321',
+                    address: '123 Đường Test, Quận Test, TP.HCM'
+                },
+                total: 157000
+            };
+            
+            let allOrders = JSON.parse(localStorage.getItem('orders')) || {};
+            if (!allOrders['testuser']) allOrders['testuser'] = [];
+            allOrders['testuser'].push(testOrder);
+            localStorage.setItem('orders', JSON.stringify(allOrders));
+            
+            alert('✅ Đã tạo đơn hàng chuyển khoản với trạng thái "Đã xử lý"\n\n🗑️ Chỉ có thể xóa đơn hàng này khỏi lịch sử');
+            displayOrders();
+        }
+
+        function displayOrders() {
+            const allOrders = JSON.parse(localStorage.getItem('orders')) || {};
+            const ordersList = document.getElementById('ordersList');
+            
+            let html = '';
+            let orderCount = 0;
+            
+            Object.keys(allOrders).forEach(username => {
+                allOrders[username].forEach(order => {
+                    orderCount++;
+                    const statusClass = {
+                        'pending': 'warning',
+                        'completed': 'success',
+                        'cancelled': 'danger'
+                    }[order.status] || 'secondary';
+                    
+                    const statusText = {
+                        'pending': 'Chờ xử lý',
+                        'completed': 'Đã xử lý',
+                        'cancelled': 'Đã hủy'
+                    }[order.status] || order.status;
+                    
+                    const paymentText = order.paymentMethod === 'bank' ? 'Chuyển khoản' : 'COD';
+                    const paymentIcon = order.paymentMethod === 'bank' ? 'fas fa-university' : 'fas fa-money-bill-wave';
+                    
+                    const actions = order.status === 'pending' ? 
+                        '<i class="fas fa-edit text-primary me-2" title="Có thể chỉnh sửa"></i><i class="fas fa-times text-danger" title="Có thể hủy"></i>' :
+                        '<i class="fas fa-trash text-secondary" title="Có thể xóa"></i>';
+                    
+                    html += `
+                        <div class="card mb-2">
+                            <div class="card-body">
+                                <div class="row align-items-center">
+                                    <div class="col-md-3">
+                                        <h6 class="mb-1">Đơn hàng #${order.id}</h6>
+                                        <small class="text-muted">Khách hàng: ${username}</small>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <i class="${paymentIcon} me-1"></i>${paymentText}
+                                    </div>
+                                    <div class="col-md-2">
+                                        <span class="badge bg-${statusClass}">${statusText}</span>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <strong>${order.total.toLocaleString('vi-VN')}đ</strong><br>
+                                        <small class="text-muted">${order.items.length} sản phẩm</small>
+                                    </div>
+                                    <div class="col-md-2 text-end">
+                                        ${actions}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                });
+            });
+            
+            if (orderCount === 0) {
+                html = '<div class="alert alert-info"><i class="fas fa-info-circle me-2"></i>Chưa có đơn hàng nào. Hãy tạo đơn hàng test để kiểm tra chức năng!</div>';
+            } else {
+                html = `<div class="alert alert-success"><i class="fas fa-check-circle me-2"></i>Tổng cộng: ${orderCount} đơn hàng</div>` + html;
+            }
+            
+            ordersList.innerHTML = html;
+        }
+
+        function clearAllOrders() {
+            if (confirm('Bạn có chắc chắn muốn xóa tất cả đơn hàng test?')) {
+                localStorage.removeItem('orders');
+                alert('✅ Đã xóa tất cả đơn hàng');
+                displayOrders();
+            }
+        }
+
+        // Load orders on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            initTestUser();
+            displayOrders();
+        });
+    </script>
+</body>
+</html>

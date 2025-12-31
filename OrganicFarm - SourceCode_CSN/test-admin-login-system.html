@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Admin Login System</title>
+    <link href="./css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./fontawesome-free-6.3.0-web/css/all.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h2><i class="fas fa-shield-alt me-2"></i>Test Admin Login System</h2>
+        
+        <div class="alert alert-info">
+            <h5><i class="fas fa-info-circle me-2"></i>Hướng dẫn test:</h5>
+            <ol>
+                <li><strong>Test đăng nhập user từ header</strong> - Thử đăng nhập admin → Bị chặn</li>
+                <li><strong>Test đăng nhập admin từ footer</strong> - Modal riêng, sạch sẽ</li>
+                <li><strong>Kiểm tra bảo mật</strong> - Admin chỉ đăng nhập được từ footer</li>
+                <li><strong>Test giao diện</strong> - Modal admin không có gợi ý tài khoản</li>
+            </ol>
+        </div>
+        
+        <!-- Simulate Header Login -->
+        <div class="row mb-4">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header bg-primary text-white">
+                        <h5><i class="fas fa-user me-2"></i>Đăng nhập từ Header</h5>
+                    </div>
+                    <div class="card-body">
+                        <p>Mô phỏng đăng nhập từ nút header (dành cho user thường)</p>
+                        <button class="btn btn-primary" onclick="openAuthModal()">
+                            <i class="fas fa-sign-in-alt me-2"></i>Đăng nhập User
+                        </button>
+                        <div class="mt-2">
+                            <small class="text-muted">
+                                ✅ User thường: Được phép<br>
+                                ❌ Admin: Bị chặn
+                            </small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header bg-dark text-white">
+                        <h5><i class="fas fa-shield-alt me-2"></i>Đăng nhập Admin từ Footer</h5>
+                    </div>
+                    <div class="card-body">
+                        <p>Đăng nhập admin từ link footer (modal riêng biệt)</p>
+                        <button class="btn btn-dark" onclick="showAdminLogin()">
+                            <i class="fas fa-cog me-2"></i>Admin Panel
+                        </button>
+                        <div class="mt-2">
+                            <small class="text-muted">
+                                🔐 Modal riêng biệt<br>
+                                🚫 Không có gợi ý tài khoản
+                            </small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Test Cases -->
+        <div class="card">
+            <div class="card-header">
+                <h5><i class="fas fa-clipboard-check me-2"></i>Test Cases</h5>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-4">
+                        <h6>🧪 Test 1: Header Login</h6>
+                        <ul class="small">
+                            <li>Nhập user thường → ✅ Thành công</li>
+                            <li>Nhập admin/admin123 → ❌ Bị chặn</li>
+                            <li>Hiển thị thông báo lỗi rõ ràng</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-4">
+                        <h6>🔐 Test 2: Admin Login</h6>
+                        <ul class="small">
+                            <li>Click "Admin Panel" → Modal riêng</li>
+                            <li>Giao diện sạch, không gợi ý</li>
+                            <li>Nhập admin/admin123 → ✅ Vào admin</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-4">
+                        <h6>🛡️ Test 3: Security</h6>
+                        <ul class="small">
+                            <li>Admin không thể từ header</li>
+                            <li>User không thể vào admin panel</li>
+                            <li>Phân quyền rõ ràng</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Current Status -->
+        <div class="mt-4">
+            <h4><i class="fas fa-info-circle me-2"></i>Trạng thái hiện tại</h4>
+            <div id="currentStatus" class="alert alert-secondary">
+                <div class="row">
+                    <div class="col-md-6">
+                        <strong>Người dùng hiện tại:</strong>
+                        <span id="currentUser">Chưa đăng nhập</span>
+                    </div>
+                    <div class="col-md-6">
+                        <strong>Admin session:</strong>
+                        <span id="adminSession">Không có</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Actions -->
+        <div class="mt-4">
+            <div class="card">
+                <div class="card-header">
+                    <h5><i class="fas fa-tools me-2"></i>Test Actions</h5>
+                </div>
+                <div class="card-body">
+                    <button class="btn btn-outline-warning me-2" onclick="clearAllSessions()">
+                        <i class="fas fa-sign-out-alt me-1"></i>Đăng xuất tất cả
+                    </button>
+                    <button class="btn btn-outline-info me-2" onclick="updateStatus()">
+                        <i class="fas fa-refresh me-1"></i>Cập nhật trạng thái
+                    </button>
+                    <button class="btn btn-outline-success" onclick="createTestUser()">
+                        <i class="fas fa-user-plus me-1"></i>Tạo user test
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Copy modals from main files -->
+    <div class="modal fade" id="modalAuth" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="authTitle">Đăng nhập</h5>
+                    <button class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="authForm">
+                        <div class="mb-3" id="authNameWrapper" style="display:none">
+                            <label class="form-label">Họ và tên</label>
+                            <input type="text" id="authName" class="form-control">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Tên đăng nhập</label>
+                            <input type="text" id="authUsername" class="form-control" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Mật khẩu</label>
+                            <input type="password" id="authPassword" class="form-control" required>
+                        </div>
+                        <div class="text-end">
+                            <button class="btn btn-success">Xác nhận</button>
+                        </div>
+                    </form>
+                    <hr>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <a href="#" id="toggleAuth">Chưa có tài khoản? Đăng ký</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="./js/lst-products.js"></script>
+    <script src="./js/auth-cart.js"></script>
+    
+    <script>
+        // Test functions
+        function updateStatus() {
+            const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+            const adminSession = JSON.parse(localStorage.getItem('adminUser'));
+            
+            document.getElementById('currentUser').textContent = 
+                currentUser ? `${currentUser.name} (${currentUser.username})` : 'Chưa đăng nhập';
+            
+            document.getElementById('adminSession').textContent = 
+                adminSession ? `${adminSession.username} - ${new Date(adminSession.loginTime).toLocaleString('vi-VN')}` : 'Không có';
+        }
+
+        function clearAllSessions() {
+            localStorage.removeItem('currentUser');
+            localStorage.removeItem('adminUser');
+            updateStatus();
+            alert('✅ Đã đăng xuất tất cả session');
+        }
+
+        function createTestUser() {
+            let users = JSON.parse(localStorage.getItem('users')) || [];
+            
+            const testUser = {
+                name: 'Test User',
+                username: 'testuser',
+                password: 'test123',
+                role: 'user'
+            };
+            
+            if (!users.find(u => u.username === 'testuser')) {
+                users.push(testUser);
+                localStorage.setItem('users', JSON.stringify(users));
+                alert('✅ Đã tạo user test:\nUsername: testuser\nPassword: test123');
+            } else {
+                alert('ℹ️ User test đã tồn tại:\nUsername: testuser\nPassword: test123');
+            }
+        }
+
+        // Load status on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            updateStatus();
+            createTestUser(); // Auto create test user
+            
+            // Auto update status every 2 seconds
+            setInterval(updateStatus, 2000);
+        });
+    </script>
+</body>
+</html>

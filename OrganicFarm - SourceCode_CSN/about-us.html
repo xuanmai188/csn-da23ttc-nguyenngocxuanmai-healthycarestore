@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="vi">
+<!--divinectorweb.com-->
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
+    <!-- All CSS -->
+    <link href="./css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./fontawesome-free-6.3.0-web/css/all.min.css">
+    <!-- CSS main-->
+    <link rel="stylesheet" href="./css/main.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-white bg-gradient shadow-sm fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="/">
+                <img src="./img/web-logo.png" width="120px" alt="Web Logo Header">
+            </a>
+            
+            <!-- Nút trở về Admin - chỉ hiển thị khi admin đã đăng nhập -->
+            <div id="adminReturnButton" class="d-none">
+                <a href="admin.html" class="btn btn-outline-primary btn-sm me-3">
+                    <i class="fas fa-crown me-1"></i>Trở về Admin
+                </a>
+            </div>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link text-success" href="index.html">Trang chủ</a>
+                    </li>
+                    <li class="nav-item dropdown product-hover">
+                        <a class="nav-link text-success dropdown-toggle" href="products.html">
+                            Sản phẩm
+                        </a>
+
+                        <ul class="dropdown-menu simple-dropdown shadow">
+                            <li><a class="dropdown-item" href="products.html?category=Nutritious cereals">Ngũ cốc bổ
+                                    dưỡng</a></li>
+                            <li><a class="dropdown-item" href="products.html?category=Pulses">Các loại đậu</a></li>
+                            <li><a class="dropdown-item" href="products.html?category=Spices and Condiments">Gia vị và
+                                    nước chấm</a>
+                            </li>
+                            <li><a class="dropdown-item" href="products.html?category=Cooking oils">Thực phẩm chức năng
+                                    và mỹ phẩm thiên nhiên</a>
+                            </li>
+                            <li><a class="dropdown-item" href="products.html?category=Rice">Gạo và các sản phẩm từ
+                                    gạo</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link text-success" href="contact-us.html">Liên hệ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-success" href="about-us.html">Giới Thiệu</a>
+                    </li>
+
+                    <li class="nav-item dropdown" id="userArea">
+                        <a class="nav-link text-success dropdown-toggle" href="#" data-bs-toggle="dropdown">
+                            <i class="fa-solid fa-user"></i> Đăng nhập
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end" id="userDropdown">
+                            <li><a class="dropdown-item" href="#">Tài khoản của tôi</a></li>
+                            <li><a class="dropdown-item" href="#">Lịch sử mua hàng</a></li>
+                            <li><a class="dropdown-item" href="#">Cài đặt</a></li>
+                            <li><a class="dropdown-item" href="#" id="btnLogout">Đăng xuất</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item ms-3">
+                        <button class="btn btn-success position-relative" id="btnCart" data-bs-toggle="offcanvas"
+                            data-bs-target="#offcanvasCart">
+                            Giỏ hàng <span id="cartCount" class="cart-count ms-1">0</span>
+                        </button>
+                    </li>
+
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Wrapper container -->
+    <div class="container" style="margin-top: 80px">
+        <div class="card my-2">
+            <div class="card-body">
+                <h1 class="card-title">Những thông tin về chúng tôi</h1>
+                <img src="./img/abus.webp" alt="Star Organic farm" class="w-50 d-block mx-auto mb-3">
+                <p>Trang trại hữu cơ Star được thành lập năm 1988. Công ty chuyên kinh doanh và sản xuất nhiều loại sản
+                    phẩm hữu cơ và gia vị cho người tiêu dùng trên toàn cầu.</p>
+                <p>Công ty có bộ sưu tập sản phẩm đa dạng bao gồm ngũ cốc bổ dưỡng, các loại đậu, gia vị và nước chấm,
+                    dầu ăn, bột trái cây, nông sản, dầu thực vật, lúa mì và bột mì, gạo và các sản phẩm từ gạo, v.v..
+                </p>
+                <p>
+                    Với hơn ba thập kỷ hình thành và phát triển, trang trại hữu cơ Star luôn kiên định theo đuổi phương
+                    pháp canh tác tự nhiên, không sử dụng hóa chất độc hại, đảm bảo giữ nguyên giá trị dinh dưỡng và
+                    sự an toàn cho sức khỏe người tiêu dùng.
+                </p>
+
+                <p>
+                    Toàn bộ quy trình sản xuất được kiểm soát nghiêm ngặt từ khâu lựa chọn giống, trồng trọt, thu hoạch
+                    đến đóng gói, đáp ứng các tiêu chuẩn vệ sinh và an toàn thực phẩm. Các sản phẩm của Star không chỉ
+                    phục vụ nhu cầu tiêu dùng trong nước mà còn được xuất khẩu sang nhiều thị trường quốc tế.
+                </p>
+
+                <p>
+                    Healthy Care tự hào hợp tác cùng trang trại hữu cơ Star nhằm mang đến cho khách hàng những sản phẩm
+                    hữu cơ chất lượng cao, góp phần xây dựng lối sống lành mạnh, bền vững và thân thiện với môi trường.
+                </p>
+
+            </div>
+        </div>
+    </div>
+    <div class="farm-img">
+        <img src="./img/footer-bg.png" class="img-fluid" width="718" height="239" alt="Footer background"
+            data-src="./img/footer-bg.png" style="padding-top: 100px;">
+    </div>
+    <footer class="bg-white py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-sm-6">
+                    <div class="single-box">
+                        <img src="./img/web-logo.png" width="250px" alt="Web Logo Footer">
+                        <ul class="nav flex-column" style="margin-left: -15px;">
+                            <li class="nav-item">
+                                <a class="nav-link text-success" href="#">
+                                    <i class="fa-solid fa-location-dot"></i>&nbsp;
+                                    Phường 1, Trà Vinh, Việt Nam
+                                </a>
+                            </li>
+
+                            <li class="nav-item"><a class="nav-link text-success" href="#"><i
+                                        class="fa-solid fa-phone"></i>&nbsp;
+                                    0382 020 858 - 0222 342 495 </a></li>
+                            <li class="nav-item"><a class="nav-link text-success" href="#"> <i
+                                        class="fa-sharp fa-regular fa-envelope"></i>&nbsp; support@aptech.vn</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6">
+                    <div class="single-box">
+                        <h2 class="fs-6 text-uppercase">HỢP TÁC & PHÁT TRIỂN</h2>
+                        <ul class="nav flex-column" style="margin-left: -15px;">
+                            <li class="nav-item"><a class="nav-link text-success" href="dai-ly.html">Trở thành đại lý Nông trại Hữu cơ</a></li>
+                            <li class="nav-item"><a class="nav-link text-success" href="bang-gia.html">Bảng giá bán lẻ</a></li>
+                            <li class="nav-item"><a class="nav-link text-success" href="thu-vien-anh.html">Thư viện ảnh</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6">
+                    <div class="single-box">
+                        <h2 class="fs-6 text-uppercase">Giá trị cốt lõi</h2>
+                        <ul class="nav flex-column" style="margin-left: -15px;">
+                            <li><a class="nav-link text-success" href="gia-tri-dao-duc.html">Kinh doanh dựa trên giá trị đạo đức</a></li>
+                            <li><a class="nav-link text-success" href="khach-hang-trung-tam.html">Đặt khách hàng làm trung tâm</a></li>
+                            <li><a class="nav-link text-success" href="chat-luong-an-toan.html">Chất lượng và an toàn</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6">
+                    <div class="single-box">
+                        <h2 class="fs-6 text-uppercase">Giới thiệu</h2>
+                        <ul class="nav flex-column" style="margin-left: -15px;">
+                            <li class="nav-item"><a class="nav-link text-success" href="about-us.html">Về chúng tôi</a>
+                            </li>
+                            <li class="nav-item"><a class="nav-link text-success" href="tu-van.html">Tư vấn</a></li>
+                            <li class="nav-item"><a class="nav-link text-success" href="dieu-khoan.html">Điều khoản sử dụng</a></li>
+                            <li class="nav-item"><a class="nav-link text-success" href="bao-mat.html">Chính sách bảo mật</a></li>
+                            <li class="nav-item"><a class="nav-link text-success" href="chinh-sach-khac.html">Các chính sách khác</a></li>
+                            <li class="nav-item">
+                                <a class="nav-link text-success" href="#" onclick="showAdminLogin()">
+                                    <i class="fas fa-cog"></i> Admin Panel
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <main class="container">
+        <!-- Offcanvas Cart -->
+        <div class="offcanvas offcanvas-end" id="offcanvasCart" style="width:420px">
+
+            <div class="offcanvas-header">
+                <h5 class="offcanvas-title">Giỏ hàng</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+            </div>
+            <div class="offcanvas-body d-flex flex-column">
+                <div id="cartItems" class="mb-3"><!-- JS render --></div>
+                <div class="mt-auto">
+                    <div class="d-flex justify-content-between mb-3">
+                        <strong>Tổng:</strong>
+                        <strong id="cartTotal">0₫</strong>
+                    </div>
+                    <button class="btn btn-success w-100 mb-2" id="btnCheckout" data-bs-dismiss="offcanvas">Tiến hành
+                        thanh toán</button>
+                    <button class="btn btn-outline-secondary w-100" id="btnClearCart">Xóa giỏ hàng</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal: Checkout -->
+        <div class="modal fade" id="modalCheckout" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Thanh toán</h5>
+                        <button class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="checkoutForm" class="form-checkout">
+                            <div class="mb-3">
+                                <label class="form-label">Họ tên</label>
+                                <input type="text" id="custName" class="form-control" placeholder="Nhập họ tên của bạn"
+                                    pattern=".{2,}" title="Họ tên phải có ít nhất 2 ký tự" autocomplete="name" required>
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label">Số điện thoại</label>
+                                <input type="tel" id="custPhone" class="form-control" placeholder="0123 456 789"
+                                    pattern="0[0-9]{9}" title="Số điện thoại phải gồm 10 chữ số, bắt đầu bằng số 0"
+                                    autocomplete="tel" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Địa chỉ giao hàng</label>
+                                <input type="text" id="custAddress" class="form-control" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Phương thức thanh toán</label>
+                                <select id="payMethod" class="form-select">
+                                    <option value="cod">Thanh toán khi nhận hàng (COD)</option>
+                                    <option value="bank">Chuyển khoản ngân hàng</option>
+                                </select>
+                            </div>
+                            <div class="text-end">
+                                <button class="btn btn-success">Xác nhận đặt hàng</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal: Success -->
+        <div class="modal fade" id="modalSuccess" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content text-center py-4">
+                    <h5 class="mb-3">Đặt hàng thành công!</h5>
+                    <p class="text-muted">Mã đơn hàng: <strong id="orderId">#HC0001</strong></p>
+                    <button class="btn btn-primary" data-bs-dismiss="modal">Đóng</button>
+                </div>
+            </div>
+        </div>
+    </main>
+    <!-- All Js -->
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="./js/lst-products.js"></script>
+    <script src="./js/detail.js"></script>
+    <script src="./js/auth-cart.js"></script>
+
+    <script>
+    // Function to update category dropdown from localStorage
+    function updateCategoryDropdown() {
+        const categories = JSON.parse(localStorage.getItem('websiteCategories') || localStorage.getItem('categories')) || [];
+        const dropdown = document.querySelector('.dropdown-menu');
+        
+        if (dropdown && categories.length > 0) {
+            let newHTML = '';
+            categories.forEach(category => {
+                // Chỉ hiển thị tên danh mục, không hiển thị số lượng
+                newHTML += `<li><a class="dropdown-item" href="products.html?category=${category.value}">${category.name}</a></li>`;
+            });
+            dropdown.innerHTML = newHTML;
+        }
+    }
+    
+    // Listen for category updates from admin
+    window.addEventListener('categoriesUpdated', function(event) {
+        updateCategoryDropdown();
+    });
+    
+    // Update categories on page load
+    document.addEventListener('DOMContentLoaded', function() {
+        updateCategoryDropdown();
+    });
+    </script>
+
+    <div class="modal fade" id="modalAuth" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="authTitle">Đăng nhập</h5>
+                    <button class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+
+                <div class="modal-body">
+                    <form id="authForm">
+                        <div class="mb-3" id="authNameWrapper" style="display:none">
+                            <label class="form-label">Họ và tên</label>
+                            <input type="text" id="authName" class="form-control">
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Tên đăng nhập</label>
+                            <input type="text" id="authUsername" class="form-control" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Mật khẩu</label>
+                            <input type="password" id="authPassword" class="form-control" required>
+                        </div>
+
+                        <div class="text-end">
+                            <button class="btn btn-success">Xác nhận</button>
+                        </div>
+                    </form>
+
+                    <hr>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <a href="#" id="toggleAuth">Chưa có tài khoản? Đăng ký</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modalProfile" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Thông tin tài khoản</h5>
+                    <button class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form onsubmit="updateProfile(event)">
+                        <div class="mb-3">
+                            <label class="form-label">Họ tên</label>
+                            <input type="text" id="profileName" class="form-control" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Tên đăng nhập</label>
+                            <input type="text" id="profileUsername" class="form-control" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Địa chỉ giao hàng</label>
+                            <input type="text" id="profileAddress" class="form-control" placeholder="Nhập địa chỉ giao hàng">
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Số điện thoại</label>
+                            <input type="tel" id="profilePhone" class="form-control" placeholder="0123 456 789" pattern="0[0-9]{9}">
+                        </div>
+
+                        <hr>
+                        <h6 class="mb-3">
+                            <i class="fas fa-key me-2"></i>Đổi mật khẩu
+                            <button type="button" class="btn btn-sm btn-outline-primary ms-2" onclick="toggleChangePassword()">
+                                <i class="fas fa-edit me-1"></i>Thay đổi
+                            </button>
+                        </h6>
+
+                        <div id="changePasswordSection" style="display: none;">
+                            <div class="mb-3">
+                                <label class="form-label">Mật khẩu hiện tại</label>
+                                <input type="password" id="currentPassword" class="form-control" placeholder="Nhập mật khẩu hiện tại">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Mật khẩu mới</label>
+                                <input type="password" id="newPassword" class="form-control" placeholder="Nhập mật khẩu mới" minlength="6">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Xác nhận mật khẩu mới</label>
+                                <input type="password" id="confirmPassword" class="form-control" placeholder="Nhập lại mật khẩu mới">
+                            </div>
+                            <div class="alert alert-info">
+                                <small>
+                                    <i class="fas fa-info-circle me-1"></i>
+                                    Mật khẩu phải có ít nhất 6 ký tự
+                                </small>
+                            </div>
+                        </div>
+
+                        <div class="text-end">
+                            <button class="btn btn-success">
+                                <i class="fas fa-save me-2"></i>Cập nhật thông tin
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="modal fade" id="modalHistory" tabindex="-1">
+        <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Lịch sử mua hàng</h5>
+                    <button class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body" id="historyBody">
+                    <!-- JS render -->
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
