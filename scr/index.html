@@ -28,14 +28,14 @@
       <a class="navbar-brand" href="/">
         <img src="./img/web-logo.png" width="120px" alt="Web Logo Header">
       </a>
-      
+
       <!-- Nút trở về Admin - chỉ hiển thị khi admin đã đăng nhập -->
       <div id="adminReturnButton" class="d-none">
         <a href="admin.html" class="btn btn-outline-primary btn-sm me-3">
           <i class="fas fa-crown me-1"></i>Trở về Admin
         </a>
       </div>
-      
+
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -57,7 +57,8 @@
               <li><a class="dropdown-item" href="products.html?category=Spices and Condiments">Gia vị và
                   nước chấm</a>
               </li>
-              <li><a class="dropdown-item" href="products.html?category=Cooking oils">Thực phẩm chức năng và mỹ phẩm thiên nhiên</a>
+              <li><a class="dropdown-item" href="products.html?category=Cooking oils">Thực phẩm chức năng và mỹ phẩm
+                  thiên nhiên</a>
               </li>
               <li><a class="dropdown-item" href="products.html?category=Rice">Gạo và các sản phẩm từ
                   gạo</a></li>
@@ -321,7 +322,7 @@
     <!-- footer -->
     <div class="farm-img">
       <img src="./img/footer-bg.png" class="img-fluid" width="718" height="239" alt="Footer background"
-        data-src="./img/footer-bg.png" style="padding-top: 100px;" >
+        data-src="./img/footer-bg.png" style="padding-top: 100px;">
     </div>
     <footer class="bg-white py-5">
       <div class="container">
@@ -361,8 +362,10 @@
             <div class="single-box">
               <h2 class="fs-6 text-uppercase">Giá trị cốt lõi</h2>
               <ul class="nav flex-column" style="margin-left: -15px;">
-                <li><a class="nav-link text-success" href="gia-tri-dao-duc.html">Kinh doanh dựa trên giá trị đạo đức</a></li>
-                <li><a class="nav-link text-success" href="khach-hang-trung-tam.html">Đặt khách hàng làm trung tâm</a></li>
+                <li><a class="nav-link text-success" href="gia-tri-dao-duc.html">Kinh doanh dựa trên giá trị đạo đức</a>
+                </li>
+                <li><a class="nav-link text-success" href="khach-hang-trung-tam.html">Đặt khách hàng làm trung tâm</a>
+                </li>
                 <li><a class="nav-link text-success" href="chat-luong-an-toan.html">Chất lượng và an toàn </a></li>
               </ul>
             </div>
@@ -376,7 +379,8 @@
                 <li class="nav-item"><a class="nav-link text-success" href="tu-van.html">Tư vấn</a></li>
                 <li class="nav-item"><a class="nav-link text-success" href="dieu-khoan.html">Điều khoản sử dụng</a></li>
                 <li class="nav-item"><a class="nav-link text-success" href="bao-mat.html">Chính sách bảo mật</a></li>
-                <li class="nav-item"><a class="nav-link text-success" href="chinh-sach-khac.html">Các chính sách khác</a></li>
+                <li class="nav-item"><a class="nav-link text-success" href="chinh-sach-khac.html">Các chính sách
+                    khác</a></li>
                 <li class="nav-item">
                   <a class="nav-link text-success" href="#" onclick="showAdminLogin()">
                     <i class="fas fa-cog"></i> Admin Panel
@@ -432,7 +436,7 @@
                   <input type="tel" id="custPhone" class="form-control" placeholder="0123 456 789" pattern="0[0-9]{9}"
                     title="Số điện thoại phải gồm 10 chữ số, bắt đầu bằng số 0" autocomplete="tel" required>
                 </div>
-                
+
                 <div class="mb-3">
                   <div class="d-flex justify-content-between align-items-center mb-2">
                     <label class="form-label mb-0">Địa chỉ giao hàng</label>
@@ -440,10 +444,11 @@
                       <i class="fas fa-user me-1"></i>Dùng địa chỉ mặc định
                     </button>
                   </div>
-                  <input type="text" id="custAddress" class="form-control" placeholder="Nhập địa chỉ giao hàng" required>
+                  <input type="text" id="custAddress" class="form-control" placeholder="Nhập địa chỉ giao hàng"
+                    required>
                   <small class="text-muted">Hoặc click "Dùng địa chỉ mặc định" để sử dụng địa chỉ trong hồ sơ</small>
                 </div>
-                
+
                 <div class="mb-3">
                   <label class="form-label">Phương thức thanh toán</label>
                   <select id="payMethod" class="form-select">
@@ -477,103 +482,103 @@
     <script src="js/auth-cart.js"></script>
     <script src="js/swiper-bundle.min.js"></script>
     <script src="js/script.js"></script>
-    
+
     <script>
-    // Function to update category dropdown from localStorage
-    function updateCategoryDropdown() {
+      // Function to update category dropdown from localStorage
+      function updateCategoryDropdown() {
         const categories = JSON.parse(localStorage.getItem('websiteCategories') || localStorage.getItem('categories')) || [];
         const dropdown = document.querySelector('.dropdown-menu');
-        
+
         if (dropdown && categories.length > 0) {
-            let newHTML = '';
-            categories.forEach(category => {
-                // Chỉ hiển thị tên danh mục, không hiển thị số lượng
-                newHTML += `<li><a class="dropdown-item" href="products.html?category=${category.value}">${category.name}</a></li>`;
-            });
-            dropdown.innerHTML = newHTML;
+          let newHTML = '';
+          categories.forEach(category => {
+            // Chỉ hiển thị tên danh mục, không hiển thị số lượng
+            newHTML += `<li><a class="dropdown-item" href="products.html?category=${category.value}">${category.name}</a></li>`;
+          });
+          dropdown.innerHTML = newHTML;
         }
-    }
-    
-    // Listen for category updates from admin
-    window.addEventListener('categoriesUpdated', function(event) {
+      }
+
+      // Listen for category updates from admin
+      window.addEventListener('categoriesUpdated', function (event) {
         updateCategoryDropdown();
-    });
-    
-    // Update categories on page load
-    document.addEventListener('DOMContentLoaded', function() {
+      });
+
+      // Update categories on page load
+      document.addEventListener('DOMContentLoaded', function () {
         updateCategoryDropdown();
-    });
-    
-    // Render featured products with same card design as products page
-    document.addEventListener('DOMContentLoaded', function() {
+      });
+
+      // Render featured products with same card design as products page
+      document.addEventListener('DOMContentLoaded', function () {
         // Get products with reviews
         const products = refreshProducts();
         const featuredContainer = document.getElementById('featuredProducts');
-        
-        if (featuredContainer && products.length > 0) {
-            // Clear existing content
-            featuredContainer.innerHTML = '';
-            
-            // Show first 6 products as featured
-            products.slice(0, 6).forEach(product => {
-                // Get reviews for this product
-                const reviews = getProductReviews(product.id);
-                const avgRating = calculateAverageRating(reviews);
-                const reviewCount = reviews.length;
-                
-                // Generate stars HTML
-                let starsHTML = '';
-                for (let i = 1; i <= 5; i++) {
-                    if (i <= Math.floor(avgRating)) {
-                        starsHTML += '<i class="fas fa-star text-warning"></i>';
-                    } else if (i === Math.floor(avgRating) + 1 && avgRating % 1 >= 0.5) {
-                        starsHTML += '<i class="fas fa-star-half-alt text-warning"></i>';
-                    } else {
-                        starsHTML += '<i class="far fa-star text-warning"></i>';
-                    }
-                }
-                
-                const reviewText = reviewCount > 0 ? `(${reviewCount})` : '(Chưa có đánh giá)';
-                
-                // ===== XỬ LÝ GIÁ =====
-                const priceText = product.price.toLocaleString("vi-VN") + " đ";
 
-                let discountHTML = "";
-                if (
-                  product.discountPercentage &&
-                  product.discountPercentage > product.price
-                ) {
-                  discountHTML = `
+        if (featuredContainer && products.length > 0) {
+          // Clear existing content
+          featuredContainer.innerHTML = '';
+
+          // Show first 6 products as featured
+          products.slice(0, 6).forEach(product => {
+            // Get reviews for this product
+            const reviews = getProductReviews(product.id);
+            const avgRating = calculateAverageRating(reviews);
+            const reviewCount = reviews.length;
+
+            // Generate stars HTML
+            let starsHTML = '';
+            for (let i = 1; i <= 5; i++) {
+              if (i <= Math.floor(avgRating)) {
+                starsHTML += '<i class="fas fa-star text-warning"></i>';
+              } else if (i === Math.floor(avgRating) + 1 && avgRating % 1 >= 0.5) {
+                starsHTML += '<i class="fas fa-star-half-alt text-warning"></i>';
+              } else {
+                starsHTML += '<i class="far fa-star text-warning"></i>';
+              }
+            }
+
+            const reviewText = reviewCount > 0 ? `(${reviewCount})` : '(Chưa có đánh giá)';
+
+            // ===== XỬ LÝ GIÁ =====
+            const priceText = product.price.toLocaleString("vi-VN") + " đ";
+
+            let discountHTML = "";
+            if (
+              product.discountPercentage &&
+              product.discountPercentage > product.price
+            ) {
+              discountHTML = `
                     <span class="price-original">
                       ${product.discountPercentage.toLocaleString("vi-VN")} đ
                     </span>
                   `;
-                }
+            }
 
-                // ===== XỬ LÝ TAGS CÔNG DỤNG =====
-                let usageTagsHTML = "";
-                if (product.usages && product.usages.length > 0) {
-                  const usageLabels = {
-                    'nutrition': 'Bổ dưỡng',
-                    'cooking': 'Nấu ăn', 
-                    'health': 'Sức khỏe',
-                    'beauty': 'Làm đẹp',
-                    'organic': 'Hữu cơ'
-                  };
-                  
-                  usageTagsHTML = `
+            // ===== XỬ LÝ TAGS CÔNG DỤNG =====
+            let usageTagsHTML = "";
+            if (product.usages && product.usages.length > 0) {
+              const usageLabels = {
+                'nutrition': 'Bổ dưỡng',
+                'cooking': 'Nấu ăn',
+                'health': 'Sức khỏe',
+                'beauty': 'Làm đẹp',
+                'organic': 'Hữu cơ'
+              };
+
+              usageTagsHTML = `
                     <div class="usage-tags mb-2">
-                      ${product.usages.slice(0, 2).map(usage => 
-                        `<span class="badge bg-success me-1">${usageLabels[usage] || usage}</span>`
-                      ).join('')}
+                      ${product.usages.slice(0, 2).map(usage =>
+                `<span class="badge bg-success me-1">${usageLabels[usage] || usage}</span>`
+              ).join('')}
                     </div>
                   `;
-                }
+            }
 
-                // ===== XỬ LÝ ĐÁNH GIÁ =====
-                let ratingHTML = "";
-                if (reviewCount > 0) {
-                  ratingHTML = `
+            // ===== XỬ LÝ ĐÁNH GIÁ =====
+            let ratingHTML = "";
+            if (reviewCount > 0) {
+              ratingHTML = `
                     <div class="product-rating mb-2">
                       <div class="d-flex align-items-center">
                         ${starsHTML}
@@ -581,15 +586,15 @@
                       </div>
                     </div>
                   `;
-                } else {
-                  ratingHTML = `
+            } else {
+              ratingHTML = `
                     <div class="product-rating mb-2">
                       <span class="text-muted small">Chưa có đánh giá</span>
                     </div>
                   `;
-                }
-                
-                const cardHTML = `
+            }
+
+            const cardHTML = `
                     <div class="product-card">
                         <div class="product-image-wrapper">
                             <img src="${product.thumbnail}" 
@@ -621,27 +626,27 @@
                         </div>
                     </div>
                 `;
-                
-                featuredContainer.innerHTML += cardHTML;
-            });
+
+            featuredContainer.innerHTML += cardHTML;
+          });
         }
-    });
-    
-    // Helper functions for homepage
-    function getProductReviews(productId) {
+      });
+
+      // Helper functions for homepage
+      function getProductReviews(productId) {
         const allReviews = JSON.parse(localStorage.getItem("productReviews")) || {};
         return allReviews[productId] || [];
-    }
-    
-    function calculateAverageRating(reviews) {
+      }
+
+      function calculateAverageRating(reviews) {
         if (reviews.length === 0) return 0;
         const sum = reviews.reduce((total, review) => total + review.rating, 0);
         return sum / reviews.length;
-    }
-    
-    function formatVND(price) {
+      }
+
+      function formatVND(price) {
         return price.toLocaleString("vi-VN") + " đ";
-    }
+      }
     </script>
 
 
@@ -722,6 +727,7 @@
             <h5 class="modal-title">Thông tin tài khoản</h5>
             <button class="btn-close" data-bs-dismiss="modal"></button>
           </div>
+
           <div class="modal-body">
             <form onsubmit="updateProfile(event)">
               <div class="mb-3">
@@ -759,7 +765,8 @@
                 </div>
                 <div class="mb-3">
                   <label class="form-label">Mật khẩu mới</label>
-                  <input type="password" id="newPassword" class="form-control" placeholder="Nhập mật khẩu mới" minlength="6">
+                  <input type="password" id="newPassword" class="form-control" placeholder="Nhập mật khẩu mới"
+                    minlength="6">
                 </div>
                 <div class="mb-3">
                   <label class="form-label">Xác nhận mật khẩu mới</label>
@@ -786,18 +793,18 @@
 
 
     <div class="modal fade" id="modalHistory" tabindex="-1">
-  <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Lịch sử mua hàng</h5>
-        <button class="btn-close" data-bs-dismiss="modal"></button>
-      </div>
-      <div class="modal-body" id="historyBody">
-        <!-- JS render -->
+      <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Lịch sử mua hàng</h5>
+            <button class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+          <div class="modal-body" id="historyBody">
+            <!-- JS render -->
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-</div>
 
 
 
